@@ -1,11 +1,15 @@
 <div align="center">
   <br />
+  <br />
 
-  <!-- TODO: Add your SwiftBits logo at Assets/README/swiftbits-logo.svg, then replace the heading below with:
-  <img src="Assets/README/swiftbits-logo.svg" alt="SwiftBits logo" width="520" />
-  -->
+  <picture>
+    <source media="(prefers-color-scheme: light)" srcset="Assets/README/swift-bits-logo-light.png">
+    <source media="(prefers-color-scheme: dark)" srcset="Assets/README/swift-bits-logo-dark.png">
+    <img src="Assets/README/swift-bits-logo-light.png" alt="SwiftBits logo" width="600">
+  </picture>
 
-  <h1>SwiftBits</h1>
+  <br />
+  <br />
 
   <strong>Expressive SwiftUI components, effects, and interaction patterns.</strong>
   <br />
@@ -22,10 +26,9 @@
   <br />
   <br />
 
-  <a href="#installation">Installation</a> ·
-  <a href="#components">Components</a> ·
-  <a href="#contributing">Contributing</a>
-  <!-- TODO: Add a DocC or documentation-site link here when published. -->
+  <a href="Sources/SwiftBits/SwiftBits.docc/FirstCollection.md">📖 Documentation</a> ·
+  <a href="#quick-start">⚡ Quick Start</a> ·
+  <a href="#components">🧩 Components</a>
 </div>
 
 <br />
