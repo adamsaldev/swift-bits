@@ -59,12 +59,18 @@ Use the package as a source of production-ready building blocks, or study the im
 | --- | --- | --- | --- |
 | `GlowButton` | Buttons | Configurable button with glow and pressed feedback | Available |
 | `.shimmer()` | Effects | Animated light sweep for loading states | Available |
-| `AnimatedCounter` | Text | Smooth transitions between numeric values | Planned |
-| `GlassCard` | Cards | Composable material-backed content container | Planned |
-| `SkeletonView` | Loading | Reusable placeholder layouts | Planned |
-| `CollapsingHeader` | Scrolling | Shared header behavior across scrollable tabs | Planned |
+| `ScrambleText` | Text | Scrambles characters before resolving into text | Available |
+| `RollingNumber` | Text | Vertical digit transitions with localized number formatting | Available |
+| `HoldToConfirmButton` | Buttons | Continuous hold with cancellation and accessible confirmation | Available |
+| `MorphingButton` | Buttons | Idle, loading, success, and failure transitions | Available |
+| `SpotlightCard` | Cards | Pointer and touch-following radial highlight | Available |
+| `ExpandableCard` | Cards | Animated in-place summary and detail expansion | Available |
+| `SkeletonView` | Loading | Layout-preserving redaction and optional shimmer | Available |
+| `CollapsingHeader` | Scrolling | Shared collapsing header over independently scrollable tabs | Available |
 
-<!-- TODO: Replace planned rows with links to their source files as each component ships. -->
+The eight new components and `SwiftBitsGallery` require **iOS 26+ or macOS 26+**, compiled with Xcode 26+. Existing `GlowButton` and `.shimmer()` retain iOS 17/macOS 14 support.
+
+See [the collection guide](Sources/SwiftBits/SwiftBits.docc/FirstCollection.md) for usage and accessibility notes. Open `SwiftBitsGallery.swift` in Xcode and run its canvas preview to explore all eight components.
 
 ## Installation
 

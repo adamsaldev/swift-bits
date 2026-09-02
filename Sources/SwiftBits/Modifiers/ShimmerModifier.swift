@@ -5,12 +5,13 @@ private struct ShimmerModifier: ViewModifier {
     let active: Bool
     let duration: TimeInterval
 
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @State private var phase: CGFloat = -1
 
     func body(content: Content) -> some View {
         content
             .overlay {
-                if active {
+                if active && !reduceMotion {
                     GeometryReader { proxy in
                         LinearGradient(
                             colors: [.clear, .white.opacity(0.55), .clear],
@@ -25,8 +26,8 @@ private struct ShimmerModifier: ViewModifier {
                     .allowsHitTesting(false)
                 }
             }
-            .task(id: active) {
-                guard active else {
+            .task(id: active && !reduceMotion) {
+                guard active && !reduceMotion else {
                     phase = -1
                     return
                 }

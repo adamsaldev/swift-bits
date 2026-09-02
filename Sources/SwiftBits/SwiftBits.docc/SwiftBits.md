@@ -12,7 +12,29 @@ adding interaction and visual polish not included with the standard controls.
 ### Buttons
 
 - ``GlowButton``
+- ``HoldToConfirmButton``
+- ``MorphingButton``
 
 ### Effects
 
 - ``SwiftUI/View/shimmer(active:duration:)``
+
+### Text
+
+- ``ScrambleText``
+- ``RollingNumber``
+
+### Cards
+
+- ``SpotlightCard``
+- ``ExpandableCard``
+
+### Loading and scrolling
+
+- ``SkeletonView``
+- ``CollapsingHeader``
+
+### Guides and examples
+
+- <doc:FirstCollection>
+- ``SwiftBitsGallery``
