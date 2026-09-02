@@ -41,20 +41,20 @@
 <br />
 -->
 
-## Built for SwiftUI
+## ✨ Why SwiftBits?
 
-SwiftBits is a growing collection of reusable SwiftUI components that focus on motion, interaction, and visual polish. Every component is designed to feel native to SwiftUI: configurable through initializers, composable with view builders, and installable through Swift Package Manager.
+SwiftBits helps you **build expressive SwiftUI interfaces faster**. Instead of spending hours crafting animations from scratch, start with a reusable component and customize it to fit your app.
 
-Use the package as a source of production-ready building blocks, or study the implementation to learn how expressive SwiftUI interfaces are constructed.
+> 💬 **Text Animations** · 🎛️ **Buttons & Controls** · 🧩 **Cards & Containers** · 🌀 **Loading & Scrolling**
 
-## Highlights
+## 🚀 Features
 
-- **Native SwiftUI APIs** — views, modifiers, bindings, and view builders instead of wrappers around another UI system
-- **Focused dependencies** — currently built entirely with Apple frameworks
-- **Customizable by default** — tune colors, timing, sizing, shapes, and behavior from the public API
-- **Accessible foundations** — components are designed with Dynamic Type, reduced motion, and native interaction semantics in mind
-- **Documented and tested** — public APIs include DocC documentation and the package includes automated tests
-- **Swift Package Manager ready** — add the repository directly to an Xcode project
+- **9 components + a shimmer effect** — animated text, interactive buttons, cards, loading placeholders, and scrolling behavior
+- **No third-party dependencies** — built entirely with SwiftUI and Apple frameworks
+- **Customizable by design** — adjust colors, timing, content, and behavior through Swift APIs or edit the source directly
+- **Native SwiftUI composition** — work with views, bindings, and view builders that fit naturally into your app
+- **Swift Package Manager ready** — add the repository in Xcode, import SwiftBits, and start building
+- **Examples included** — explore the interactive Xcode gallery and follow the component usage guide
 
 ## Components
 
