@@ -1,4 +1,6 @@
 <div align="center">
+    <br />
+    <br />
   <picture>
     <source media="(prefers-color-scheme: light)" srcset="Assets/README/swift-bits-logo-light.svg">
     <source media="(prefers-color-scheme: dark)" srcset="Assets/README/swift-bits-logo-dark.svg">
