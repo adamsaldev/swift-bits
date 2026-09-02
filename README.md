@@ -1,16 +1,9 @@
 <div align="center">
-  <br />
-  <br />
-
   <picture>
     <source media="(prefers-color-scheme: light)" srcset="Assets/README/swift-bits-logo-light.png">
     <source media="(prefers-color-scheme: dark)" srcset="Assets/README/swift-bits-logo-dark.png">
     <img src="Assets/README/swift-bits-logo-light.png" alt="SwiftBits logo" width="600">
   </picture>
-
-  <br />
-  <br />
-
   <strong>Expressive SwiftUI components, effects, and interaction patterns.</strong>
   <br />
   <sub>Built to help Swift developers add polish without rebuilding every animation from scratch.</sub>
