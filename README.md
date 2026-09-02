@@ -1,8 +1,8 @@
 <div align="center">
   <picture>
-    <source media="(prefers-color-scheme: light)" srcset="Assets/README/swift-bits-logo-light.png">
-    <source media="(prefers-color-scheme: dark)" srcset="Assets/README/swift-bits-logo-dark.png">
-    <img src="Assets/README/swift-bits-logo-light.png" alt="SwiftBits logo" width="600">
+    <source media="(prefers-color-scheme: light)" srcset="Assets/README/swift-bits-logo-light.svg">
+    <source media="(prefers-color-scheme: dark)" srcset="Assets/README/swift-bits-logo-dark.svg">
+    <img src="Assets/README/swift-bits-logo-light.svg" alt="SwiftBits logo" width="600">
   </picture>
   <strong>Expressive SwiftUI components, effects, and interaction patterns.</strong>
   <br />
