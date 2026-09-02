@@ -4,6 +4,7 @@
     <source media="(prefers-color-scheme: dark)" srcset="Assets/README/swift-bits-logo-dark.svg">
     <img src="Assets/README/swift-bits-logo-light.svg" alt="SwiftBits logo" width="600">
   </picture>
+  <br />
   <strong>Expressive SwiftUI components, effects, and interaction patterns.</strong>
   <br />
   <sub>Built to help Swift developers add polish without rebuilding every animation from scratch.</sub>
