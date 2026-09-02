@@ -136,14 +136,14 @@ SwiftBits/
 └── .github/workflows/     Automated build and test checks
 ```
 
-## Requirements
+## 📋 Requirements
 
 - iOS 17+
 - macOS 14+
 - Swift 6.0+
 - Xcode 16+
 
-## Roadmap
+## 🗺️ Roadmap
 
 - Expand the first collection of animated components
 - Build a visual catalog app with live customization controls
@@ -153,22 +153,22 @@ SwiftBits/
 
 <!-- TODO: Link each roadmap item to a GitHub issue once the issue tracker is organized. -->
 
-## Contributing
+## 🤝 Contributing
 
 Ideas, bug reports, and pull requests are welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md) before submitting a change.
 
 When proposing a component, include its intended use case, customization API, accessibility behavior, and a visual preview when possible.
 
-## Maintainer
+## 👨‍💻 Maintainer
 
 Created and maintained by [Adam Saleh](https://github.com/adamsaldev).
 
-## Inspiration and credit
+## 💡 Inspiration and credit
 
 SwiftBits is inspired by the creativity and discoverability of projects such as [React Bits](https://github.com/DavidHDev/react-bits), while its components and APIs are implemented specifically for SwiftUI.
 
 If a component is adapted from another open-source project or public example, its source and license should be credited alongside the implementation.
 
-## License
+## 📄 License
 
 SwiftBits is available under the [MIT License](LICENSE).
