@@ -54,4 +54,4 @@ public struct ExampleComponent<Content: View>: View {
 | `docs` | Maintainer and contribution guides |
 | `scripts` | Repeatable local validation |
 
-The browser playground is the only preview surface. Add new component demos there and document differences from native behavior. SwiftUI source remains authoritative for the library implementation.
+The browser playground is the only preview surface. Its markup lives in `Preview/index.html`, shared styling in `Preview/styles.css`, and interactions in `Preview/playground.js`. Add new component demos there and document differences from native behavior. SwiftUI source remains authoritative for the library implementation.

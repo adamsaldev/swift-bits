@@ -6,6 +6,8 @@ Notable changes are recorded here. SwiftBits follows semantic versioning; 0.x AP
 
 ### Added
 
+- Redesigned browser playground with system typography, responsive component cards, category filters, and search.
+
 - `FilterChip`, `StatusBadge`, `ProgressRing`, and `EmptyState` for everyday interface states.
 - `FlowLayout` with wrapping rows, configurable spacing, and right-to-left placement.
 - Browser playground as the sole preview surface.
