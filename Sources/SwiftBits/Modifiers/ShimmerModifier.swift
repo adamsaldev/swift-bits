@@ -43,6 +43,6 @@ private struct ShimmerModifier: ViewModifier {
 public extension View {
     /// Adds an animated light sweep to the receiving view.
     func shimmer(active: Bool = true, duration: TimeInterval = 1.4) -> some View {
-        modifier(ShimmerModifier(active: active, duration: duration))
+        modifier(ShimmerModifier(active: active, duration: duration.isFinite ? min(max(duration, 0.1), 60) : 1.4))
     }
 }

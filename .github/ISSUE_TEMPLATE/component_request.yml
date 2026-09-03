@@ -1,0 +1,15 @@
+name: Component proposal
+description: Suggest a focused, reusable SwiftUI building block.
+body:
+  - type: textarea
+    id: use_case
+    attributes:
+      label: Use case
+      description: What should this help developers build?
+    validations:
+      required: true
+  - type: textarea
+    id: api
+    attributes:
+      label: Proposed API and behavior
+      description: Include customization, state ownership, accessibility, and visual references.

@@ -42,6 +42,8 @@ public struct GlowButton<Label: View>: View {
 }
 
 private struct GlowButtonStyle: ButtonStyle {
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @Environment(\.isEnabled) private var isEnabled
     let tint: Color
     let cornerRadius: CGFloat
     let glowRadius: CGFloat
@@ -54,8 +56,9 @@ private struct GlowButtonStyle: ButtonStyle {
                 color: tint.opacity(configuration.isPressed ? 0.25 : 0.55),
                 radius: configuration.isPressed ? glowRadius * 0.4 : glowRadius
             )
-            .scaleEffect(configuration.isPressed ? 0.97 : 1)
-            .animation(.spring(response: 0.22, dampingFraction: 0.72), value: configuration.isPressed)
+            .opacity(isEnabled ? 1 : 0.5)
+            .scaleEffect(configuration.isPressed && !reduceMotion ? 0.97 : 1)
+            .animation(reduceMotion ? nil : .spring(response: 0.22, dampingFraction: 0.72), value: configuration.isPressed)
     }
 }
 

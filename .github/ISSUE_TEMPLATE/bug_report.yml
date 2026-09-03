@@ -1,0 +1,22 @@
+name: Bug report
+description: Report a component or documentation problem.
+body:
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal reproduction
+      description: Include SwiftUI code, steps, expected behavior, and actual behavior.
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      placeholder: iOS/macOS version, Xcode version, SwiftBits version or commit
+    validations:
+      required: true
+  - type: textarea
+    id: visuals
+    attributes:
+      label: Screenshots and accessibility settings
+      description: Include any relevant Dynamic Type, Reduce Motion, or VoiceOver settings.

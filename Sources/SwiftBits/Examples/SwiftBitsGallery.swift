@@ -11,6 +11,10 @@ public struct SwiftBitsGallery: View {
     @State private var loading = true
     @State private var selectedTab = 0
 
+    @State private var favoritesOnly = true
+    @State private var progress = 0.72
+    @Environment(\.layoutDirection) private var layoutDirection
+
     public init() {}
 
     public var body: some View {
@@ -38,6 +42,32 @@ public struct SwiftBitsGallery: View {
 
     private var components: some View {
         VStack(alignment: .leading, spacing: 28) {
+            GroupBox("GlowButton & Shimmer") {
+                VStack(spacing: 16) {
+                    GlowButton("Make something great", tint: .indigo) { score += 100 }
+                    RoundedRectangle(cornerRadius: 8).fill(.quaternary)
+                        .frame(height: 24).shimmer()
+                }.padding(8)
+            }
+            GroupBox("FilterChip · FlowLayout · StatusBadge") {
+                FlowLayout(layoutDirection: layoutDirection) {
+                    FilterChip("Favorites", systemImage: "star", isSelected: $favoritesOnly)
+                    FilterChip("All components", isSelected: .constant(true), tint: .indigo)
+                    StatusBadge("Available", systemImage: "checkmark.circle.fill", tint: .green)
+                }.padding(8)
+            }
+            GroupBox("ProgressRing") {
+                VStack {
+                    ProgressRing(value: progress, tint: .indigo).frame(width: 120, height: 120)
+                    Slider(value: $progress).accessibilityLabel("Completion")
+                }.padding(8)
+            }
+            GroupBox("EmptyState") {
+                EmptyState("Your collection starts here", systemImage: "square.stack.3d.up",
+                           message: "Save components to keep inspiration close.") {
+                    Button("Save a favorite") { favoritesOnly = true }
+                }
+            }
             GroupBox("ScrambleText") {
                 VStack(alignment: .leading) {
                     ScrambleText(phrase).font(.title2.monospaced())
