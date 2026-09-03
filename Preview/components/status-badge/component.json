@@ -1,0 +1,10 @@
+{
+  "slug": "status-badge",
+  "name": "StatusBadge",
+  "category": "feedback",
+  "description": "Compact status with a symbol and color.",
+  "source": "Sources/SwiftBits/Components/Feedback/StatusBadge.swift",
+  "order": 8,
+  "aspectRatio": "4 / 3",
+  "previewKind": "live-html"
+}

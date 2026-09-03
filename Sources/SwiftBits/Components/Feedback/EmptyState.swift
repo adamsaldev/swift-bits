@@ -1,14 +1,16 @@
 import SwiftUI
 
 /// A centered empty-state message with caller-owned recovery actions.
-@available(iOS 26.0, macOS 26.0, *)
+///
+/// `title` and `message` are `LocalizedStringKey`; string literals are looked up in the
+/// caller's bundle and interpolation is supported (for example `"No results for \(query)"`).
 public struct EmptyState<Actions: View>: View {
-    private let title: String
+    private let title: LocalizedStringKey
     private let systemImage: String
-    private let message: String
+    private let message: LocalizedStringKey
     private let actions: Actions
 
-    public init(_ title: String, systemImage: String, message: String,
+    public init(_ title: LocalizedStringKey, systemImage: String, message: LocalizedStringKey,
                 @ViewBuilder actions: () -> Actions) {
         self.title = title
         self.systemImage = systemImage
@@ -32,9 +34,8 @@ public struct EmptyState<Actions: View>: View {
     }
 }
 
-@available(iOS 26.0, macOS 26.0, *)
 public extension EmptyState where Actions == EmptyView {
-    init(_ title: String, systemImage: String, message: String) {
+    init(_ title: LocalizedStringKey, systemImage: String, message: LocalizedStringKey) {
         self.init(title, systemImage: systemImage, message: message) { EmptyView() }
     }
 }

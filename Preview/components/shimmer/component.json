@@ -1,0 +1,10 @@
+{
+  "slug": "shimmer",
+  "name": "Shimmer",
+  "category": "layout",
+  "description": "A moving highlight across a surface.",
+  "source": "Sources/SwiftBits/Modifiers/ShimmerModifier.swift",
+  "order": 11,
+  "aspectRatio": "4 / 3",
+  "previewKind": "live-html"
+}

@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Components — SwiftBits</title>
+<meta name="description" content="Explore expressive SwiftUI components. A little interaction. A lot of possibility.">
+<style>
+:root{color-scheme:dark;--bg:#111;--text:#eee;--muted:#929292;--panel:#202020;--line:#252525;font-family:Inter,-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;font-synthesis:none;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-size:14px;line-height:1.45}a{color:inherit;text-decoration:none}button,input,select{font:inherit;color:inherit}button,select{cursor:pointer}button{touch-action:manipulation}button,a,input,select,summary{outline-offset:5px}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:2px solid #91b8ff}[hidden]{display:none!important}.sr,.skip-link:not(:focus){position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}.skip-link:focus{position:fixed;z-index:20;background:#fff;color:#111;padding:12px}
+.site-header{height:59px;border-bottom:1px solid #242424}.nav-inner{height:100%;padding:0 12px;display:flex;align-items:center;justify-content:space-between;gap:24px;position:relative}.brand{display:flex;align-items:center;gap:9px;background:#202020;border-radius:10px;padding:6px 11px;font-weight:600;white-space:nowrap}.brand-mark{font-size:24px;line-height:23px;color:white}.chevron{display:inline-block;width:6px;height:6px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg);margin:0 2px 3px 5px;color:#999}.nav-links{position:absolute;left:50%;transform:translateX(-50%);display:flex;gap:29px;align-items:center;color:#8e8e8e;font-weight:500}.nav-links .current,.nav-links a:hover{color:#eee}.search{display:flex;align-items:center;gap:9px;background:#202020;width:277px;height:35px;padding:0 12px;border-radius:10px}.search svg{width:17px;height:17px;fill:none;stroke:#929292;stroke-width:2;flex-shrink:0}.search input{width:100%;min-width:0;border:0;background:transparent;outline:none;font-size:14px}.search input::placeholder{color:#929292}
+main{width:78.35%;max-width:1600px;margin:0 auto}.hero{padding:84px 0 90px}h1{font-size:46px;font-weight:600;letter-spacing:-1.9px;line-height:1.15;margin:0 0 11px}.intro{font-size:18px;line-height:1.36;letter-spacing:.05px;color:#929292;margin:0;max-width:620px}.collection-tools{display:flex;align-items:center;justify-content:space-between;margin-bottom:23px;gap:16px}.sort-tabs{display:flex;gap:6px}.sort-tabs button,.filter-menus select,.copy-button{border:0;background:#202020;border-radius:10px;padding:8px 13px;line-height:19px;font-weight:500}.sort-tabs button{background:transparent;color:#929292}.sort-tabs button[aria-pressed=true]{background:#202020;color:#eee}.filter-menus{display:flex;gap:12px}.filter-menus select{padding-right:27px;max-width:150px}.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:35px 23px;align-items:start}article{min-width:0;position:relative}.stage{aspect-ratio:4/3;border-radius:19px;overflow:hidden;background:#f7f7f7;color:#171717;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:24px;border:1px solid #ffffff0c;position:relative}.meta{display:flex;justify-content:space-between;align-items:start;gap:8px;margin-top:12px}.meta h3{font-size:14px;font-weight:500;line-height:20px;margin:0;overflow-wrap:anywhere}.meta p{font-size:14px;color:#929292;line-height:20px;margin:0}.copy-button{flex-shrink:0}.copy-button:hover,.sort-tabs button:hover{background:#2b2b2b}.demo-options{position:absolute;top:10px;left:10px;right:10px;z-index:2;font-size:12px;pointer-events:none}.demo-options summary{pointer-events:auto;cursor:pointer;width:max-content;list-style:none;background:#111d;color:#fff;padding:6px 10px;border-radius:8px;opacity:0;transition:opacity .15s}.demo-options summary::-webkit-details-marker{display:none}article:hover summary,article:focus-within summary,.demo-options[open] summary{opacity:1}.controls{pointer-events:auto;margin-top:5px;background:#202020;padding:12px;border-radius:10px;display:flex;flex-wrap:wrap;gap:8px;color:#eee}.controls button,.controls select{background:#333;border:1px solid #555;border-radius:6px;padding:6px 8px;font-size:12px}.hint{display:none}.status{font-size:12px;color:#888;text-align:center}.controls .status{color:#aaa}.stage>.status{display:none}footer{color:#888;padding:48px 0 28px;font-size:13px}footer a{color:#ccc}.no-results{text-align:center;padding:70px 20px}#clear-filters{background:#222;border:0;border-radius:8px;padding:10px 16px}.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);padding:12px 20px;border:1px solid #444;border-radius:12px;background:#242424;box-shadow:0 8px 30px #0008;z-index:20}
+.hero-text { font-size: clamp(22px,2.8vw,34px); font-weight: 600; letter-spacing: -1.3px; }
+.mono { font-family: ui-monospace, "SFMono-Regular", Menlo, monospace; }
+#scramble { color: #aa4925; text-align: center; }
+.rolling { display: flex; align-items: center; font: 500 56px/1.2 ui-monospace,"SFMono-Regular",Menlo,monospace; letter-spacing: -3px; min-height: 68px; }
+.digit { width: .67em; height: 1.2em; overflow: hidden; display: inline-block; }
+.strip { display: flex; flex-direction: column; transition: transform .6s cubic-bezier(.2,.75,.2,1); }
+.strip span { height: 1.2em; flex-shrink: 0; }
+.hold { border: 0; min-height: 50px; border-radius: 14px; padding: 13px 24px; font-size: 16px; font-weight: 500; letter-spacing: -.2px; min-width: 210px; }
+.hold { position: relative; isolation: isolate; overflow: hidden; background: #e4e4e9; color: var(--text); user-select: none; touch-action: none; }
+.hold::before { content: ""; position: absolute; inset: 0; background: #c5dcf4; transform: scaleX(var(--progress,0)); transform-origin: left; z-index: -1; }
+.hold.done { color: #164b82; }
+.spotlight { position: relative; overflow: hidden; width: 100%; max-width: 350px; background: linear-gradient(120deg,#252836,#14151d); color: #f5f5f7; border: 1px solid #ffffff18; border-radius: 18px; padding: 28px; min-height: 158px; box-shadow: 0 12px 25px #00000014; }
+.spotlight::after { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0; background: radial-gradient(circle 180px at var(--x,50%) var(--y,50%),#b1adff44,transparent); transition: opacity .2s; }
+.spotlight.active::after { opacity: 1; }
+.spotlight strong { display: block; font-size: 20px; letter-spacing: -.4px; margin-bottom: 8px; }
+.spotlight p { color: #bdbfc9; font-size: 14px; margin: 0; }
+.profile { display: flex; gap: 16px; align-items: center; width: 100%; max-width: 350px; min-height: 85px; padding: 22px; background: white; border-radius: 18px; box-shadow: 0 8px 24px #00000006; }
+.avatar { background: #fbe2d1; color: #8b421c; width: 50px; height: 50px; flex-shrink: 0; border-radius: 50%; display: grid; place-items: center; font-weight: 600; font-size: 16px; }
+.profile strong { font-size: 15px; }
+.profile p { margin: 5px 0 0; font-size: 12px; color: var(--muted); }
+.skeleton .placeholder { color: transparent !important; background: #e9e9ed; position: relative; overflow: hidden; border-radius: 5px; }
+.skeleton .avatar { border-radius: 50%; }
+.skeleton .placeholder::after { content: ""; position: absolute; inset: 0; background: linear-gradient(100deg,transparent,#ffffffaa,transparent); transform: translateX(-100%); animation: shimmer 1.5s infinite; }
+@keyframes shimmer { to { transform: translateX(100%); } }
+.hero-text{font-size:clamp(16px,1.4vw,28px);letter-spacing:-1px}#scramble{color:#1c1c1c}.rolling{font-size:clamp(28px,3vw,56px);letter-spacing:-2px}#rolling-number .stage{background:#edf1f8}#hold-to-confirm .stage{background:#000}.hold{min-width:0;background:#242424;color:#fff;font-size:14px;padding:12px 20px}.hold::before{background:#38724d}.hold.done{color:#fff}#spotlight-card .stage{background:#f7ede5}.spotlight{min-height:0;padding:23px;border-radius:13px;background:linear-gradient(135deg,#3576e4,#204eb5);box-shadow:10px 15px 30px #18376822;transform:rotate(-7deg);width:85%}.spotlight strong{font-size:19px}.spotlight p{font-size:12px;color:#d5e0ff}#skeleton-view .stage{background:#e1efff}.profile{padding:18px;gap:12px;transform:rotate(-5deg);box-shadow:0 14px 30px #27496815}.profile strong{font-size:13px}.profile p{font-size:12px}.avatar{width:40px;height:40px}#glow-button .stage{background:#fafafa}.glow-button{border:1px solid #a697ef;border-radius:25px;background:#171321;color:#fff;padding:13px 19px;box-shadow:0 0 15px #9976ef66,0 0 45px #9976ef44;font-size:13px;transition:box-shadow .2s,transform .2s}.glow-button:hover{box-shadow:0 0 25px #9976efbb,0 0 65px #9976ef77}.glow-button:active{transform:scale(.95)}.glow-button span{margin-left:12px}.chip-demo{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}.chip-demo button{border:1px solid #dedede;background:white;color:#222;border-radius:20px;padding:10px 15px;font-size:12px}.chip-demo button[aria-pressed=true]{background:#171717;color:white;border-color:#171717}#progress-ring .stage{background:white}.ring-demo{border:0;background:none;position:relative;width:135px;height:135px;padding:0;color:#171717}.ring-demo svg{width:100%;transform:rotate(-90deg);fill:none;stroke-width:6}.ring-track{stroke:#ededed}.ring-fill{stroke:#367cff;stroke-linecap:round;stroke-dasharray:307.88;stroke-dashoffset:86.21;transition:stroke-dashoffset .4s}#ring-value{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:32px;letter-spacing:-1px}#ring-value span{font-size:15px;color:#888;margin-left:2px}#status-badge .stage{background:#030504}.badge-demo{display:flex;flex-direction:column;align-items:start;gap:15px}.badge{font-size:12px;border:1px solid;border-radius:20px;padding:6px 12px}.green{color:#8adbab;background:#11271b;border-color:#224d32}.amber{color:#e5c280;background:#2a2213;border-color:#584624}.blue{color:#9dbffd;background:#172135;border-color:#2c4263}.empty-demo{text-align:center}.empty-icon{display:block;font-size:25px;color:#aaa;margin-bottom:10px}.empty-demo strong{display:block;font-size:19px;letter-spacing:-.5px}.empty-demo p{font-size:12px;color:#888;margin:5px 0 17px}.empty-demo button{font-size:12px;border:0;background:#161616;color:white;padding:7px 12px;border-radius:7px}.flow-demo{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;max-width:230px;transform:rotate(-5deg)}.flow-demo span{padding:8px 12px;background:#ede9e3;border-radius:7px;font-size:12px}.flow-demo span:nth-child(3n){background:#dde8df}.flow-demo span:nth-child(3n + 1){background:#e1e7f0}#shimmer .stage{background:radial-gradient(ellipse at 100% 130%,#ffc379 0,#cc5716 18%,#252013 38%,#030a08 64%)}.shimmer-demo{font-size:24px;line-height:1.25;letter-spacing:-.7px;color:#aaa}.shimmer-demo span{background:linear-gradient(100deg,#777 20%,#fff 45%,#777 70%);background-size:250% 100%;background-clip:text;-webkit-background-clip:text;color:transparent;animation:text-shine 4s linear infinite}@keyframes text-shine{to{background-position:-250% 0}}
+@media(min-width:2000px){.hero{padding-top:100px}}
+@media(max-width:1100px){main{width:88%}.nav-links{gap:18px}.search{width:220px}.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.hero{padding:70px 0}.hero-text{font-size:19px}}
+@media(max-width:800px){.nav-links{position:static;transform:none}.nav-links a:not(.current){display:none}.search{width:200px}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero-text{font-size:22px}.rolling{font-size:40px}.demo-options summary{opacity:1}}
+@media(max-width:520px){.site-header{height:auto}.nav-inner{flex-wrap:wrap;padding:12px 20px;gap:12px}.search{width:100%;order:3}.nav-links{margin-left:auto}.hero{padding:45px 0 48px}h1{font-size:38px}.intro{font-size:16px}.desktop-break{display:none}.grid{grid-template-columns:1fr;gap:30px}main{width:auto;margin:0 20px}.collection-tools{gap:8px}.filter-menus{gap:6px}.sort-tabs{gap:0}.sort-tabs button,.filter-menus select{padding-left:10px;padding-right:10px;font-size:13px}.stage{padding:30px}.hero-text{font-size:25px}.rolling{font-size:48px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}.shimmer-demo span{background:none;color:#ddd}}
+
+</style>
+</head>
+<body>
+<a class="skip-link" href="#collection">Skip to components</a>
+<header class="site-header">
+  <nav class="nav-inner" aria-label="Main navigation">
+    <a class="brand" href="#" aria-label="SwiftBits home"><span class="brand-mark" aria-hidden="true">ϟ</span> SwiftBits <span class="chevron" aria-hidden="true"></span></a>
+    <div class="nav-links"><a href="https://github.com/adamsaldev/swift-bits#start-in-a-minute">Documentation <span class="chevron"></span></a><a class="current" href="#collection" aria-current="page">Components <span class="chevron"></span></a><a href="https://github.com/adamsaldev/swift-bits">GitHub <span class="chevron"></span></a></div>
+    <label class="search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/></svg><input id="component-search" type="search" placeholder="Search Components…" aria-label="Search components"></label>
+  </nav>
+</header>
+<main>
+  <section class="hero" aria-labelledby="page-title">
+    <h1 id="page-title">Components</h1>
+    <p class="intro">Discover expressive SwiftUI components and easily<br class="desktop-break"> make them part of your next project.</p>
+  </section>
+  <section class="collection" id="collection" aria-label="Component collection">
+    <div class="collection-tools">
+      <div class="sort-tabs" role="group" aria-label="Sort components"><button data-sort="trending" aria-pressed="true">Trending</button><button data-sort="latest" aria-pressed="false">Latest</button></div>
+      <div class="filter-menus"><label class="sr" for="price-filter">Price</label><select id="price-filter"><option value="all">Price</option><option value="free">Free</option></select><label class="sr" for="category-filter">Component type</label><select id="category-filter"><option value="all">Tools</option><option value="text">Text</option><option value="controls">Controls</option><option value="cards">Cards</option><option value="layout">Layout</option><option value="feedback">Feedback</option></select></div>
+      <span id="result-count" class="sr" role="status">12 components</span>
+    </div>
+<div class="grid">
+
+<article id="scramble-text" data-category="text" aria-labelledby="title-0"><div class="stage"><div id="scramble" class="hero-text mono" aria-label="Hello, SwiftBits">Hello, SwiftBits</div></div><div class="meta"><div><h3 id="title-0">ScrambleText</h3><p>SwiftBits · Free</p></div><button class="copy-button" data-component="ScrambleText">Copy</button></div><details class="demo-options"><summary>Try component</summary><div class="controls"><button id="replay">↻ Replay animation</button><button id="phrase">Change phrase</button><span class="hint">Try it again.</span></div></details></article>
+<article id="rolling-number" data-category="text" aria-labelledby="title-1"><div class="stage"><div id="rolling" class="rolling" role="img" aria-label="1,234.5"></div><span class="status">Every digit gets its own vertical transition.</span></div><div class="meta"><div><h3 id="title-1">RollingNumber</h3><p>SwiftBits · Free</p></div><button class="copy-button" data-component="RollingNumber">Copy</button></div><details class="demo-options"><summary>Try component</summary><div class="controls"><button id="minus" aria-label="Decrease number">− 123.4</button><button id="plus" aria-label="Increase number">+ 123.4</button><label class="sr" for="format">Number format</label><select id="format"><option value="number">Number</option><option value="percent">Percent</option></select></div></details></article>
+<article id="hold-to-confirm" data-category="controls" aria-labelledby="title-2"><div class="stage"><button id="hold" class="hold">Hold to confirm</button><div id="hold-status" class="status" role="status">Keep holding for 1.2 seconds.</div></div><div class="meta"><div><h3 id="title-2">HoldToConfirmButton</h3><p>SwiftBits · Free</p></div><button class="copy-button" data-component="HoldToConfirmButton">Copy</button></div><details class="demo-options"><summary>Try component</summary><div class="controls"><span class="status">Release or move outside to cancel. Keyboard: activate twice.</span></div></details></article>
+<article id="spotlight-card" data-category="cards" aria-labelledby="title-4"><div class="stage"><div id="spotlight" class="spotlight"><strong>A little atmosphere.</strong><p>A soft light follows your pointer or finger across the surface.</p></div></div><div class="meta"><div><h3 id="title-4">SpotlightCard</h3><p>SwiftBits · Free</p></div><button class="copy-button" data-component="SpotlightCard">Copy</button></div><details class="demo-options"><summary>Try component</summary><div class="controls"><span class="status">Hover with your mouse, or touch and drag.</span></div></details></article>
+<article id="skeleton-view" data-category="layout" aria-labelledby="title-6"><div class="stage"><div id="profile" class="profile skeleton" role="img" aria-label="Loading profile"><div class="avatar placeholder" aria-hidden="true">TM</div><div aria-hidden="true"><strong class="placeholder" style="display:block">Taylor Morgan</strong><p class="placeholder">Building something good.</p></div></div></div><div class="meta"><div><h3 id="title-6">SkeletonView</h3><p>SwiftBits · Free</p></div><button class="copy-button" data-component="SkeletonView">Copy</button></div><details class="demo-options"><summary>Try component</summary><div class="controls"><button id="load-toggle" aria-pressed="true">Show loaded content</button><span class="hint">Same layout, either state</span></div></details></article>
+<article id="glow-button" data-category="controls" aria-labelledby="title-glow-button"><div class="stage"><button id="glow-demo" class="glow-button">Create something <span>↗</span></button></div><div class="meta"><div><h3 id="title-glow-button">GlowButton</h3><p>SwiftBits · Free</p></div><button class="copy-button" data-component="GlowButton">Copy</button></div></article>
+<article id="filter-chip" data-category="controls" aria-labelledby="title-filter-chip"><div class="stage"><div class="chip-demo"><button aria-pressed="true">✓ Design</button><button aria-pressed="false">Development</button><button aria-pressed="false">Photography</button></div></div><div class="meta"><div><h3 id="title-filter-chip">FilterChip</h3><p>SwiftBits · Free</p></div><button class="copy-button" data-component="FilterChip">Copy</button></div></article>
+<article id="progress-ring" data-category="feedback" aria-labelledby="title-progress-ring"><div class="stage"><button class="ring-demo" id="ring-demo" aria-label="Advance progress"><svg viewBox="0 0 120 120" aria-hidden="true"><circle class="ring-track" cx="60" cy="60" r="49"/><circle class="ring-fill" cx="60" cy="60" r="49"/></svg><span id="ring-value">72<span>%</span></span></button></div><div class="meta"><div><h3 id="title-progress-ring">ProgressRing</h3><p>SwiftBits · Free</p></div><button class="copy-button" data-component="ProgressRing">Copy</button></div></article>
+<article id="status-badge" data-category="feedback" aria-labelledby="title-status-badge"><div class="stage"><div class="badge-demo"><span class="badge green">● All systems operational</span><span class="badge amber">◷ In progress</span><span class="badge blue">✓ Synced just now</span></div></div><div class="meta"><div><h3 id="title-status-badge">StatusBadge</h3><p>SwiftBits · Free</p></div><button class="copy-button" data-component="StatusBadge">Copy</button></div></article>
+<article id="empty-state" data-category="feedback" aria-labelledby="title-empty-state"><div class="stage"><div class="empty-demo"><span class="empty-icon" aria-hidden="true">＋</span><strong>A fresh start.</strong><p>Your next great idea belongs here.</p><button id="empty-demo">Create your first project</button></div></div><div class="meta"><div><h3 id="title-empty-state">EmptyState</h3><p>SwiftBits · Free</p></div><button class="copy-button" data-component="EmptyState">Copy</button></div></article>
+<article id="flow-layout" data-category="layout" aria-labelledby="title-flow-layout"><div class="stage"><div class="flow-demo"><span>SwiftUI</span><span>Made to move</span><span>Interaction</span><span>Open source</span><span>Small details</span><span>Big possibilities</span></div></div><div class="meta"><div><h3 id="title-flow-layout">FlowLayout</h3><p>SwiftBits · Free</p></div><button class="copy-button" data-component="FlowLayout">Copy</button></div></article>
+<article id="shimmer" data-category="layout" aria-labelledby="title-shimmer"><div class="stage"><div class="shimmer-demo"><span>Something brilliant<br>is on its way.</span></div></div><div class="meta"><div><h3 id="title-shimmer">Shimmer</h3><p>SwiftBits · Free</p></div><button class="copy-button" data-component="Shimmer">Copy</button></div></article>
+</div>
+    <div id="no-results" class="no-results" hidden><h3>No components found.</h3><p>Try another name or category.</p><button id="clear-filters">Clear filters</button></div>
+  </section>
+  <footer>Browser previews of native SwiftUI components. <a href="https://github.com/adamsaldev/swift-bits">Explore the Swift source ↗</a></footer>
+<div id="copy-status" class="toast" role="status" hidden></div>
+</main>
+<script>
+
+'use strict';
+const $=id=>document.getElementById(id), reduced=()=>matchMedia('(prefers-reduced-motion: reduce)').matches;
+// Text: replay cancels any previous scramble.
+let phraseIndex=0,scrambleFrame;const phrases=['Hello, SwiftBits','Make it move.'];
+function scramble(){cancelAnimationFrame(scrambleFrame);const text=phrases[phraseIndex],start=performance.now();$('scramble').setAttribute('aria-label',text);function frame(now){const progress=reduced()?1:Math.min(1,(now-start)/800);$('scramble').textContent=[...text].map((c,i)=>i<text.length*progress||c===' '?c:'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'[Math.floor(Math.random()*36)]).join('');if(progress<1)scrambleFrame=requestAnimationFrame(frame)}scrambleFrame=requestAnimationFrame(frame)}
+$('replay').onclick=scramble;$('phrase').onclick=()=>{phraseIndex=1-phraseIndex;scramble()};
+// A reel for each numeric place; punctuation stays stationary.
+let number=1234.5;
+function roll(){const percent=$('format').value==='percent',value=percent?number/10000:number;const text=new Intl.NumberFormat(undefined,{style:percent?'percent':'decimal',minimumFractionDigits:1,maximumFractionDigits:1}).format(value),root=$('rolling');root.setAttribute('aria-label',text);const old=[...root.children];[...text].forEach((c,i)=>{let cell=old[i];if(!cell){cell=document.createElement('span');root.append(cell)}if(/\d/.test(c)){if(!cell.classList.contains('digit')){cell.className='digit';cell.innerHTML='<span class="strip">'+Array.from({length:10},(_,n)=>'<span>'+n+'</span>').join('')+'</span>'}const strip=cell.firstChild;requestAnimationFrame(()=>{strip.style.transform='translateY(-'+Number(c)*1.2+'em)'})}else{cell.className='';cell.textContent=c}cell.setAttribute('aria-hidden','true')});old.slice(text.length).forEach(n=>n.remove())}
+$('minus').onclick=()=>{number-=123.4;roll()};$('plus').onclick=()=>{number+=123.4;roll()};$('format').onchange=roll;roll();
+// One confirmation per continuous hold, with an accessible two-activation alternative.
+let holdFrame,holding=false,holdDone=false,armed=false,armedTimer,resetTimer;
+function resetHold(){clearTimeout(resetTimer);cancelAnimationFrame(holdFrame);holding=false;holdDone=false;$('hold').style.setProperty('--progress',0);$('hold').classList.remove('done');$('hold').textContent='Hold to confirm'}
+function completeHold(){holding=false;holdDone=true;armed=false;clearTimeout(armedTimer);$('hold').style.setProperty('--progress',1);$('hold').classList.add('done');$('hold').textContent='✓ Confirmed';$('hold-status').textContent='Action completed.';resetTimer=setTimeout(()=>{resetHold();$('hold-status').textContent='Keep holding for 1.2 seconds.'},1800)}
+function cancelHold(){if(holding){resetHold();$('hold-status').textContent='Cancelled. Try holding again.'}}
+$('hold').onpointerdown=e=>{if(e.button!==0||holdDone)return;e.preventDefault();armed=false;clearTimeout(armedTimer);holding=true;$('hold').setPointerCapture(e.pointerId);const start=performance.now();$('hold-status').textContent='Keep holding…';function tick(now){if(!holding)return;const p=Math.min(1,(now-start)/1200);$('hold').style.setProperty('--progress',p);if(p===1)completeHold();else holdFrame=requestAnimationFrame(tick)}holdFrame=requestAnimationFrame(tick)};
+$('hold').onpointermove=e=>{if(!holding)return;const r=$('hold').getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)cancelHold()};
+$('hold').onpointerup=cancelHold;$('hold').onpointercancel=cancelHold;$('hold').onlostpointercapture=cancelHold;
+$('hold').onclick=e=>{if(e.detail!==0||holdDone||holding)return;if(armed){completeHold()}else{armed=true;$('hold').textContent='Activate again to confirm';armedTimer=setTimeout(()=>{armed=false;resetHold()},5000)}};
+window.addEventListener('blur',()=>{cancelHold();armed=false;clearTimeout(armedTimer);if(!holdDone)resetHold()});
+const spot=$('spotlight');spot.onpointermove=e=>{const r=spot.getBoundingClientRect();spot.style.setProperty('--x',e.clientX-r.left+'px');spot.style.setProperty('--y',e.clientY-r.top+'px');spot.classList.add('active')};spot.onpointerleave=()=>spot.classList.remove('active');spot.onpointerup=e=>{if(e.pointerType!=='mouse')spot.classList.remove('active')};spot.onpointercancel=()=>spot.classList.remove('active');
+$('load-toggle').onclick=()=>{const loading=$('profile').classList.toggle('skeleton');$('profile').setAttribute('aria-label',loading?'Loading profile':'Taylor Morgan. Building something good.');$('load-toggle').setAttribute('aria-pressed',loading);$('load-toggle').textContent=loading?'Show loaded content':'Show skeleton'};
+// Search and category filters share one source of truth.
+let category = 'all';
+const componentCards = [...document.querySelectorAll('article[data-category]')];
+function filterComponents() {
+    const query = $('component-search').value.trim().toLowerCase();
+    let count = 0;
+    componentCards.forEach(card => {
+        const matches = (category === 'all' || card.dataset.category === category)
+            && card.querySelector('.meta').textContent.toLowerCase().includes(query);
+        card.hidden = !matches;
+        if (matches) count++;
+    });
+    $('result-count').textContent = `${count} component${count === 1 ? '' : 's'}`;
+    $('no-results').hidden = count > 0;
+}
+
+$('category-filter').addEventListener('change', () => { category = $('category-filter').value; filterComponents(); });
+$('price-filter').addEventListener('change', filterComponents);
+$('component-search').addEventListener('input', filterComponents);
+$('clear-filters').addEventListener('click', () => {
+    category = 'all'; $('category-filter').value = 'all'; $('price-filter').value = 'all';
+    $('component-search').value = ''; filterComponents(); $('component-search').focus();
+});
+document.querySelectorAll('[data-sort]').forEach(button => button.addEventListener('click', () => {
+    document.querySelectorAll('[data-sort]').forEach(item => item.setAttribute('aria-pressed', item === button));
+    const ordered = button.dataset.sort === 'latest' ? [...componentCards].reverse() : componentCards;
+    ordered.forEach(card => document.querySelector('.grid').append(card));
+}));
+const snippets = {
+ ScrambleText: 'ScrambleText("Hello, SwiftBits")',
+ RollingNumber: 'RollingNumber(1234.5)',
+ HoldToConfirmButton: 'HoldToConfirmButton("Hold to confirm") {\n    // Perform your action.\n}',
+ SpotlightCard: 'SpotlightCard {\n    Text("A little atmosphere.")\n}',
+ SkeletonView: 'SkeletonView(isLoading: true) {\n    Text("Taylor Morgan")\n}',
+ GlowButton: 'GlowButton("Create something", tint: .indigo) {\n    // Create something.\n}',
+ FilterChip: '// Add to your view: @State private var isSelected = true\nFilterChip("Design", isSelected: $isSelected)',
+ ProgressRing: 'ProgressRing(value: 0.72, tint: .blue)\n    .frame(width: 120, height: 120)',
+ StatusBadge: 'StatusBadge("Synced", systemImage: "checkmark.circle", tint: .green)',
+ EmptyState: 'EmptyState("A fresh start.", systemImage: "plus", message: "Your next great idea belongs here.")',
+ FlowLayout: 'FlowLayout {\n    Text("SwiftUI")\n    Text("Made to move")\n}',
+ Shimmer: 'RoundedRectangle(cornerRadius: 12)\n    .fill(.quaternary)\n    .frame(height: 60)\n    .shimmer()'
+};
+let toastTimer;
+document.querySelectorAll('.copy-button').forEach(button => button.addEventListener('click', async () => {
+ const snippet = 'import SwiftUI\nimport SwiftBits\n\n' + snippets[button.dataset.component];
+ try {
+  if (navigator.clipboard && window.isSecureContext) await navigator.clipboard.writeText(snippet);
+  else { const field = document.createElement('textarea'); field.value = snippet; document.body.append(field); field.select(); const copied = document.execCommand('copy'); field.remove(); if (!copied) throw new Error('Copy unavailable'); }
+  $('copy-status').textContent = button.dataset.component + ' copied';
+ } catch { $('copy-status').textContent = 'Copy unavailable in this browser. Open the Swift source below.'; }
+ $('copy-status').hidden = false; clearTimeout(toastTimer); toastTimer = setTimeout(() => { $('copy-status').hidden = true; }, 3000);
+}));
+document.querySelectorAll('.chip-demo button').forEach(button => button.addEventListener('click', () => {
+ const selected = button.getAttribute('aria-pressed') !== 'true'; button.setAttribute('aria-pressed', selected);
+ button.textContent = (selected ? '✓ ' : '') + button.textContent.replace('✓ ', '');
+}));
+let progress = 72;
+$('ring-demo').addEventListener('click', () => { progress = (progress + 14) % 101; $('ring-value').innerHTML = progress + '<span>%</span>'; document.querySelector('.ring-fill').style.strokeDashoffset = 307.88 * (1 - progress / 100); $('ring-demo').setAttribute('aria-label', progress + '% complete. Advance progress'); });
+let hasProject = false;
+$('empty-demo').addEventListener('click', () => {
+ hasProject = !hasProject;
+ document.querySelector('.empty-demo strong').textContent = hasProject ? 'Your first project.' : 'A fresh start.';
+ document.querySelector('.empty-demo p').textContent = hasProject ? 'Ready for a little possibility.' : 'Your next great idea belongs here.';
+ $('empty-demo').textContent = hasProject ? 'Start again' : 'Create your first project';
+});
+filterComponents();
+
+</script></body></html>

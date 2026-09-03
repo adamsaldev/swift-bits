@@ -1,0 +1,10 @@
+{
+  "slug": "progress-ring",
+  "name": "ProgressRing",
+  "category": "feedback",
+  "description": "Animated progress with a center label.",
+  "source": "Sources/SwiftBits/Components/Feedback/ProgressRing.swift",
+  "order": 7,
+  "aspectRatio": "4 / 3",
+  "previewKind": "live-html"
+}

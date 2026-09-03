@@ -1,0 +1,58 @@
+name: Live component previews
+
+on:
+  push:
+    branches: [main]
+    paths: ['Preview/**', 'Sources/**', 'scripts/build_previews.py', 'Tests/preview/**', '.github/workflows/previews.yml']
+  pull_request:
+    paths: ['Preview/**', 'Sources/**', 'scripts/build_previews.py', 'Tests/preview/**', '.github/workflows/previews.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: previews-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Build and validate live previews
+        run: python3 -m unittest discover -s Tests/preview -v
+      - name: Upload preview bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: swiftbits-live-previews
+          path: Preview/public
+          include-hidden-files: true
+      - name: Package GitHub Pages
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: Preview/public
+
+  deploy:
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+      - name: Publish live previews
+        id: deployment
+        uses: actions/deploy-pages@v4

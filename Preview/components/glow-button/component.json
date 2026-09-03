@@ -1,0 +1,10 @@
+{
+  "slug": "glow-button",
+  "name": "GlowButton",
+  "category": "controls",
+  "description": "A glowing action with press feedback.",
+  "source": "Sources/SwiftBits/Components/Buttons/GlowButton.swift",
+  "order": 5,
+  "aspectRatio": "4 / 3",
+  "previewKind": "live-html"
+}

@@ -1,0 +1,11 @@
+.rolling { display: flex; align-items: center; font: 500 56px/1.2 ui-monospace,"SFMono-Regular",Menlo,monospace; letter-spacing: -3px; min-height: 68px; }
+
+.digit { width: .67em; height: 1.2em; overflow: hidden; display: inline-block; }
+
+.strip { display: flex; flex-direction: column; transition: transform .6s cubic-bezier(.2,.75,.2,1); }
+
+.strip span { height: 1.2em; flex-shrink: 0; }
+
+.rolling{font-size:44px;letter-spacing:-2px}
+
+#rolling-number .stage{background:#edf1f8}

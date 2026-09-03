@@ -10,16 +10,17 @@ Use Xcode 26+ and Swift 6 to build the library. Previewing in the browser requir
 git clone https://github.com/adamsaldev/swift-bits.git
 cd swift-bits
 swift test
-open Preview/index.html
+python3 scripts/build_previews.py
+python3 -m http.server 4173 --directory Preview/public
 ```
 
-The browser playground at `Preview/index.html` is the only preview surface. Open `Package.swift` in Xcode for library development and API documentation.
+The gallery and embeddable live cards are generated from `Preview/components/`. See [the live preview guide](docs/LIVE_PREVIEWS.md). Open `Package.swift` in Xcode for library development and API documentation.
 
 ## Add a component
 
 1. Read [the component contract](docs/COMPONENT_GUIDE.md).
 2. Add one public view in the appropriate `Sources/SwiftBits/Components/` category, or a reusable layout in `Layouts/`.
-3. Add an interactive example to `Preview/index.html` with useful state controls. Label any differences from native behavior.
+3. Add `component.json`, `preview.html`, `preview.css`, `preview.js`, and `snippet.swift` under `Preview/components/<slug>/`. Build and validate with `python3 -m unittest discover -s Tests/preview -v`. Label any differences from native behavior.
 4. Document its initializer, usage, ownership, accessibility behavior, and limitations in DocC. Link the symbol from `SwiftBits.md` and add it to the README catalog.
 5. Test meaningful logic and edge cases. Check the UI using the [accessibility review](docs/ACCESSIBILITY.md).
 6. Run `scripts/validate.sh`, update `CHANGELOG.md`, and open a pull request.

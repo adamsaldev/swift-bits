@@ -1,7 +1,6 @@
 import SwiftUI
 
 /// A material card with a radial highlight that follows hover or touch locations.
-@available(iOS 26.0, macOS 26.0, *)
 public struct SpotlightCard<Content: View>: View {
     private let color: Color
     private let radius: CGFloat

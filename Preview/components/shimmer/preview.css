@@ -1,0 +1,9 @@
+#shimmer .stage{background:radial-gradient(ellipse at 100% 130%,#ffc379 0,#cc5716 18%,#252013 38%,#030a08 64%)}
+
+.shimmer-demo{font-size:24px;line-height:1.25;letter-spacing:-.7px;color:#aaa}
+
+.shimmer-demo span{background:linear-gradient(100deg,#777 20%,#fff 45%,#777 70%);background-size:250% 100%;background-clip:text;-webkit-background-clip:text;color:transparent;animation:text-shine 4s linear infinite}
+
+@keyframes text-shine{to{background-position:-250% 0}}
+
+@media (prefers-reduced-motion: reduce) { .shimmer-demo span { background: none; color: #ddd; } }

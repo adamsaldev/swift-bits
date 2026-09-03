@@ -2,7 +2,6 @@ import SwiftUI
 
 /// Places intrinsic-sized views in leading-aligned rows, wrapping at the proposed width.
 /// Useful for tags and filters. Oversized items receive the available row width.
-@available(iOS 26.0, macOS 26.0, *)
 public struct FlowLayout: Layout {
     public var spacing: CGFloat
     public var rowSpacing: CGFloat

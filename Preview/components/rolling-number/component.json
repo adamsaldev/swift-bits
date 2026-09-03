@@ -1,0 +1,10 @@
+{
+  "slug": "rolling-number",
+  "name": "RollingNumber",
+  "category": "text",
+  "description": "Animated transitions for every digit.",
+  "source": "Sources/SwiftBits/Components/Text/RollingNumber.swift",
+  "order": 1,
+  "aspectRatio": "4 / 3",
+  "previewKind": "live-html"
+}

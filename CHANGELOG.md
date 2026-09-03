@@ -2,31 +2,39 @@
 
 Notable changes are recorded here. SwiftBits follows semantic versioning; 0.x APIs may evolve between minor releases.
 
-## Unreleased
+## 0.1.0 — 2026-09-03
 
-### Added
+First tagged release.
 
-- Redesigned browser playground with system typography, responsive component cards, category filters, and search.
+### Components
 
-- `FilterChip`, `StatusBadge`, `ProgressRing`, and `EmptyState` for everyday interface states.
-- `FlowLayout` with wrapping rows, configurable spacing, and right-to-left placement.
-- Browser playground as the sole preview surface.
-- Everyday component guide, component contract, accessibility review, and release process.
-- Layout boundary tests, numeric edge-case tests, iOS compilation, and DocC checks.
+- **Expressive:** `ScrambleText`, `RollingNumber`, `GlowButton`, `SpotlightCard`, `HoldToConfirmButton`, and the `.shimmer()` modifier.
+- **Everyday building blocks:** `FilterChip`, `StatusBadge`, `ProgressRing`, `EmptyState`, `SkeletonView`, and `FlowLayout`.
 
-### Removed
+### Platform
 
-- `MorphingButton`, `ExpandableCard`, and `CollapsingHeader`, including their browser demos and related tests.
+- Single deployment floor of iOS 17 / macOS 14 for the whole collection. (Earlier drafts gated most components to iOS 26 without needing an iOS 26 API; those annotations were removed.)
+- No third-party dependencies.
 
-- Native gallery, Xcode preview, macOS demo executable and launcher, and static README showcase.
+### Localization
 
-### Fixed
+- User-visible labels are `LocalizedStringKey`, with `some StringProtocol` overloads on `GlowButton`, `HoldToConfirmButton`, `FilterChip`, and `StatusBadge` for runtime strings.
+- The library ships its own strings in `Localizable.xcstrings` (English), resolved via `Bundle.module`.
 
-- `GlowButton` respects Reduce Motion and visually reflects disabled state.
-- Shimmer sanitizes invalid and extreme durations.
-- Progress clamping treats NaN as zero to avoid invalid geometry.
+### Feedback
 
-### Existing collection
+- `.sensoryFeedback` haptics: `.selection` on `FilterChip` and while arming `HoldToConfirmButton`, `.success` on a completed hold, and a soft impact on `GlowButton` press. Haptics degrade to nothing on unsupported hardware.
 
-- Animated text, hold-to-confirm buttons, spotlight cards, and loading skeletons.
-- `GlowButton` and `.shimmer()` retain iOS 17/macOS 14 support; the expanded collection requires iOS 26/macOS 26.
+### Accessibility
+
+- Reduce Motion, Reduce Transparency, Dynamic Type, VoiceOver labels/traits/values, and keyboard activation paths across the collection.
+- `GlowButton` respects Reduce Motion and reflects its disabled state.
+- `HoldToConfirmButton` dims when disabled, matching the other buttons.
+- `ProgressRing` clamps out-of-range values and treats NaN as zero to avoid invalid geometry.
+- `.shimmer()` sanitizes invalid and extreme durations and stops under Reduce Motion.
+
+### Tooling
+
+- Browser playground: component-owned HTML/CSS/JS demos, isolated embed pages, a gallery, JSON/CSV catalogs, and native source exports from one no-dependency build, validated in CI and published to GitHub Pages. Framer embed contract documented.
+- Component contract, everyday-component guide, accessibility review, and release checklist.
+- Layout-arithmetic and numeric edge-case tests; CI runs macOS tests, iOS compilation, and a DocC build with warnings as errors.

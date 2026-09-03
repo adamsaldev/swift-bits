@@ -1,0 +1,10 @@
+{
+  "slug": "flow-layout",
+  "name": "FlowLayout",
+  "category": "layout",
+  "description": "Tags that wrap into available space.",
+  "source": "Sources/SwiftBits/Layouts/FlowLayout.swift",
+  "order": 10,
+  "aspectRatio": "4 / 3",
+  "previewKind": "live-html"
+}

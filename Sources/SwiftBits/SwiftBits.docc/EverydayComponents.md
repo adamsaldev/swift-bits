@@ -1,6 +1,6 @@
 # Everyday components
 
-Compose filtering, progress, status, and empty states with five focused building blocks. All require iOS 26 or macOS 26. Import `SwiftUI` and `SwiftBits` in each file.
+Compose filtering, progress, status, and empty states with five focused building blocks. All require iOS 17 or macOS 14. Import `SwiftUI` and `SwiftBits` in each file.
 
 ## Selectable filters
 
@@ -60,4 +60,4 @@ EmptyState("No saved components", systemImage: "bookmark",
 }
 ```
 
-Omit the trailing closure for an informational state. The caller owns navigation and recovery actions. Text wraps, the symbol is decorative, and actions retain native button semantics. All strings accept caller-localized values, for example `String(localized: "No saved components")`.
+Omit the trailing closure for an informational state. The caller owns navigation and recovery actions. Text wraps, the symbol is decorative, and actions retain native button semantics. `title` and `message` are `LocalizedStringKey`: string literals are looked up in your bundle's string catalog and interpolation is supported, for example `EmptyState("No results for \(query)", systemImage: "magnifyingglass", message: "Try another search.")`.

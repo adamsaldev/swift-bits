@@ -1,0 +1,10 @@
+{
+  "slug": "hold-to-confirm",
+  "name": "HoldToConfirmButton",
+  "category": "controls",
+  "description": "A cancellable press-and-hold action.",
+  "source": "Sources/SwiftBits/Components/Buttons/HoldToConfirmButton.swift",
+  "order": 2,
+  "aspectRatio": "4 / 3",
+  "previewKind": "live-html"
+}

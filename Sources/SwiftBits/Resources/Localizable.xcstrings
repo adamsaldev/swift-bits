@@ -1,0 +1,72 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Activate again to confirm" : {
+      "comment" : "HoldToConfirmButton label shown after the first keyboard/VoiceOver activation, prompting a second one.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Activate again to confirm"
+          }
+        }
+      }
+    },
+    "Activate twice to confirm, or touch and hold." : {
+      "comment" : "HoldToConfirmButton accessibility hint.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Activate twice to confirm, or touch and hold."
+          }
+        }
+      }
+    },
+    "Awaiting confirmation" : {
+      "comment" : "HoldToConfirmButton accessibility value while it is armed and waiting for a second activation.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Awaiting confirmation"
+          }
+        }
+      }
+    },
+    "Hold to confirm" : {
+      "comment" : "Default HoldToConfirmButton title.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hold to confirm"
+          }
+        }
+      }
+    },
+    "Loading" : {
+      "comment" : "Default SkeletonView accessibility label while content is loading.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Loading"
+          }
+        }
+      }
+    },
+    "Progress" : {
+      "comment" : "Default ProgressRing accessibility label.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Progress"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

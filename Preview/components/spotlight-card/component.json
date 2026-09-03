@@ -1,0 +1,10 @@
+{
+  "slug": "spotlight-card",
+  "name": "SpotlightCard",
+  "category": "cards",
+  "description": "A highlight that follows your pointer.",
+  "source": "Sources/SwiftBits/Components/Cards/SpotlightCard.swift",
+  "order": 3,
+  "aspectRatio": "4 / 3",
+  "previewKind": "live-html"
+}

@@ -1,7 +1,10 @@
 import SwiftUI
 
 /// Resolves a temporary scramble into readable text. Changes to `text` replay the effect.
-@available(iOS 26.0, macOS 26.0, *)
+///
+/// The effect operates on resolved characters, so `text` is a plain `String`. Pass an
+/// already-localized value, for example `ScrambleText(String(localized: "Welcome"))`.
+/// VoiceOver reads the final text, not the scramble.
 public struct ScrambleText: View {
     private let text: String
     private let duration: TimeInterval

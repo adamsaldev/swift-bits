@@ -1,0 +1,10 @@
+{
+  "slug": "filter-chip",
+  "name": "FilterChip",
+  "category": "controls",
+  "description": "A selectable filter with visible state.",
+  "source": "Sources/SwiftBits/Components/Controls/FilterChip.swift",
+  "order": 6,
+  "aspectRatio": "4 / 3",
+  "previewKind": "live-html"
+}

@@ -2,9 +2,8 @@ import SwiftUI
 
 /// Fires once after a continuous hold; releasing early or leaving the control cancels it.
 /// VoiceOver and keyboard activation use an explicit second activation to confirm.
-@available(iOS 26.0, macOS 26.0, *)
 public struct HoldToConfirmButton: View {
-    private let title: String
+    private let title: Text
     private let duration: TimeInterval
     private let tint: Color
     private let action: () -> Void
@@ -16,8 +15,22 @@ public struct HoldToConfirmButton: View {
     @State private var armed = false
     @State private var cancelledTouch = false
 
-    public init(_ title: String = "Hold to confirm", duration: TimeInterval = 1.2,
+    /// Uses the localized default title, "Hold to confirm".
+    public init(duration: TimeInterval = 1.2, tint: Color = .accentColor, action: @escaping () -> Void) {
+        self.init(title: Text("Hold to confirm", bundle: .module), duration: duration, tint: tint, action: action)
+    }
+
+    public init(_ titleKey: LocalizedStringKey, duration: TimeInterval = 1.2,
                 tint: Color = .accentColor, action: @escaping () -> Void) {
+        self.init(title: Text(titleKey), duration: duration, tint: tint, action: action)
+    }
+
+    public init(_ title: some StringProtocol, duration: TimeInterval = 1.2,
+                tint: Color = .accentColor, action: @escaping () -> Void) {
+        self.init(title: Text(title), duration: duration, tint: tint, action: action)
+    }
+
+    private init(title: Text, duration: TimeInterval, tint: Color, action: @escaping () -> Void) {
         self.title = title
         self.duration = duration.isFinite ? min(max(duration, 0.1), 60) : 1.2
         self.tint = tint
@@ -29,7 +42,7 @@ public struct HoldToConfirmButton: View {
             guard !holding, !completed else { return }
             if armed { armed = false; action() } else { armed = true }
         } label: {
-            Text(armed ? "Activate again to confirm" : title)
+            (armed ? Text("Activate again to confirm", bundle: .module) : title)
                 .fontWeight(.semibold)
                 .padding(.horizontal, 20)
                 .frame(minHeight: 44)
@@ -57,8 +70,11 @@ public struct HoldToConfirmButton: View {
                 }
         }
         .buttonStyle(.plain)
-        .accessibilityValue(armed ? "Awaiting confirmation" : "")
-        .accessibilityHint("Activate twice to confirm, or touch and hold.")
+        .opacity(isEnabled ? 1 : 0.5)
+        .accessibilityValue(armed ? Text("Awaiting confirmation", bundle: .module) : Text(verbatim: ""))
+        .accessibilityHint(Text("Activate twice to confirm, or touch and hold.", bundle: .module))
+        .sensoryFeedback(.selection, trigger: armed) { _, isArmed in isArmed }
+        .sensoryFeedback(.success, trigger: completed) { _, didComplete in didComplete }
         .task(id: holding) {
             guard holding else { return }
             let clock = ContinuousClock()

@@ -1,0 +1,10 @@
+{
+  "slug": "skeleton-view",
+  "name": "SkeletonView",
+  "category": "layout",
+  "description": "Loading placeholders that preserve the layout.",
+  "source": "Sources/SwiftBits/Components/Loading/SkeletonView.swift",
+  "order": 4,
+  "aspectRatio": "4 / 3",
+  "previewKind": "live-html"
+}

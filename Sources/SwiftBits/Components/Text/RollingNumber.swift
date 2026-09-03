@@ -2,7 +2,6 @@ import SwiftUI
 
 /// A formatted number with native, vertical odometer transitions.
 /// Supply `.percent` or a precision/grouping configuration through `format`.
-@available(iOS 26.0, macOS 26.0, *)
 public struct RollingNumber: View {
     private let value: Double
     private let format: FloatingPointFormatStyle<Double>

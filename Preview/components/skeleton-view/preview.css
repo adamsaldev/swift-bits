@@ -1,0 +1,25 @@
+.profile { display: flex; gap: 16px; align-items: center; width: 100%; max-width: 350px; min-height: 85px; padding: 22px; background: white; border-radius: 18px; box-shadow: 0 8px 24px #00000006; }
+
+.avatar { background: #fbe2d1; color: #8b421c; width: 50px; height: 50px; flex-shrink: 0; border-radius: 50%; display: grid; place-items: center; font-weight: 600; font-size: 16px; }
+
+.profile strong { font-size: 15px; }
+
+.profile p { margin: 5px 0 0; font-size: 12px; color: var(--muted); }
+
+.skeleton .placeholder { color: transparent !important; background: #e9e9ed; position: relative; overflow: hidden; border-radius: 5px; }
+
+.skeleton .avatar { border-radius: 50%; }
+
+.skeleton .placeholder::after { content: ""; position: absolute; inset: 0; background: linear-gradient(100deg,transparent,#ffffffaa,transparent); transform: translateX(-100%); animation: shimmer 1.5s infinite; }
+
+@keyframes shimmer { to { transform: translateX(100%); } }
+
+#skeleton-view .stage{background:#e1efff}
+
+.profile{padding:18px;gap:12px;transform:rotate(-5deg);box-shadow:0 14px 30px #27496815}
+
+.profile strong{font-size:13px}
+
+.profile p{font-size:12px}
+
+.avatar{width:40px;height:40px}

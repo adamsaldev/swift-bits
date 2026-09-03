@@ -59,23 +59,31 @@ private struct GlowButtonStyle: ButtonStyle {
             .opacity(isEnabled ? 1 : 0.5)
             .scaleEffect(configuration.isPressed && !reduceMotion ? 0.97 : 1)
             .animation(reduceMotion ? nil : .spring(response: 0.22, dampingFraction: 0.72), value: configuration.isPressed)
+            .sensoryFeedback(.impact(flexibility: .soft), trigger: configuration.isPressed) { _, isPressed in isPressed }
     }
 }
 
 public extension GlowButton where Label == Text {
     init(
-        _ title: String,
+        _ titleKey: LocalizedStringKey,
         tint: Color = .accentColor,
         cornerRadius: CGFloat = 16,
         glowRadius: CGFloat = 14,
         action: @escaping () -> Void
     ) {
-        self.init(
-            tint: tint,
-            cornerRadius: cornerRadius,
-            glowRadius: glowRadius,
-            action: action
-        ) {
+        self.init(tint: tint, cornerRadius: cornerRadius, glowRadius: glowRadius, action: action) {
+            Text(titleKey)
+        }
+    }
+
+    init(
+        _ title: some StringProtocol,
+        tint: Color = .accentColor,
+        cornerRadius: CGFloat = 16,
+        glowRadius: CGFloat = 14,
+        action: @escaping () -> Void
+    ) {
+        self.init(tint: tint, cornerRadius: cornerRadius, glowRadius: glowRadius, action: action) {
             Text(title)
         }
     }

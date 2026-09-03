@@ -1,0 +1,11 @@
+.ring-demo{border:0;background:none;position:relative;width:135px;height:135px;padding:0;color:#171717}
+
+.ring-demo svg{width:100%;transform:rotate(-90deg);fill:none;stroke-width:6}
+
+.ring-track{stroke:#ededed}
+
+.ring-fill{stroke:#367cff;stroke-linecap:round;stroke-dasharray:307.88;stroke-dashoffset:86.21;transition:stroke-dashoffset .4s}
+
+#ring-value{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:32px;letter-spacing:-1px}
+
+#ring-value span{font-size:15px;color:#888;margin-left:2px}

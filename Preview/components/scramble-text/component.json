@@ -1,0 +1,10 @@
+{
+  "slug": "scramble-text",
+  "name": "ScrambleText",
+  "category": "text",
+  "description": "Text that resolves from scrambled characters.",
+  "source": "Sources/SwiftBits/Components/Text/ScrambleText.swift",
+  "order": 0,
+  "aspectRatio": "4 / 3",
+  "previewKind": "live-html"
+}

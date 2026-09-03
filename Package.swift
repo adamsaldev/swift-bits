@@ -4,6 +4,7 @@ import PackageDescription
 
 let package = Package(
     name: "SwiftBits",
+    defaultLocalization: "en",
     platforms: [
         .iOS(.v17),
         .macOS(.v14)
@@ -12,7 +13,10 @@ let package = Package(
         .library(name: "SwiftBits", targets: ["SwiftBits"])
     ],
     targets: [
-        .target(name: "SwiftBits"),
+        .target(
+            name: "SwiftBits",
+            resources: [.process("Resources")]
+        ),
         .testTarget(name: "SwiftBitsTests", dependencies: ["SwiftBits"])
     ]
 )

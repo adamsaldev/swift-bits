@@ -1,0 +1,10 @@
+{
+  "slug": "empty-state",
+  "name": "EmptyState",
+  "category": "feedback",
+  "description": "An empty state with a recovery action.",
+  "source": "Sources/SwiftBits/Components/Feedback/EmptyState.swift",
+  "order": 9,
+  "aspectRatio": "4 / 3",
+  "previewKind": "live-html"
+}

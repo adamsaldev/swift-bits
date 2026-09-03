@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Components — SwiftBits</title>
+<meta name="description" content="Explore expressive SwiftUI components. A little interaction. A lot of possibility.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip-link" href="#collection">Skip to components</a>
+<header class="site-header">
+  <nav class="nav-inner" aria-label="Main navigation">
+    <a class="brand" href="#" aria-label="SwiftBits home"><span class="brand-mark" aria-hidden="true">ϟ</span> SwiftBits <span class="chevron" aria-hidden="true"></span></a>
+    <div class="nav-links"><a href="https://github.com/adamsaldev/swift-bits#start-in-a-minute">Documentation <span class="chevron"></span></a><a class="current" href="#collection" aria-current="page">Components <span class="chevron"></span></a><a href="https://github.com/adamsaldev/swift-bits">GitHub <span class="chevron"></span></a></div>
+    <label class="search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/></svg><input id="component-search" type="search" placeholder="Search Components…" aria-label="Search components"></label>
+  </nav>
+</header>
+<main>
+  <section class="hero" aria-labelledby="page-title">
+    <h1 id="page-title">Components</h1>
+    <p class="intro">Discover expressive SwiftUI components and easily<br class="desktop-break"> make them part of your next project.</p>
+  </section>
+  <section class="collection" id="collection" aria-label="Component collection">
+    <div class="collection-tools">
+      <div class="sort-tabs" role="group" aria-label="Sort components"><button data-sort="trending" aria-pressed="true">Trending</button><button data-sort="latest" aria-pressed="false">Latest</button></div>
+      <div class="filter-menus"><label class="sr" for="price-filter">Price</label><select id="price-filter"><option value="all">Price</option><option value="free">Free</option></select><label class="sr" for="category-filter">Component type</label><select id="category-filter"><option value="all">Tools</option><option value="text">Text</option><option value="controls">Controls</option><option value="cards">Cards</option><option value="layout">Layout</option><option value="feedback">Feedback</option></select></div>
+      <span id="result-count" class="sr" role="status">12 components</span>
+    </div>
+<div class="grid">
+<!-- COMPONENT_CARDS -->
+</div>
+    <div id="no-results" class="no-results" hidden><h3>No components found.</h3><p>Try another name or category.</p><button id="clear-filters">Clear filters</button></div>
+  </section>
+  <footer>Browser previews of native SwiftUI components. <a href="https://github.com/adamsaldev/swift-bits">Explore the Swift source ↗</a></footer>
+<div id="copy-status" class="toast" role="status" hidden></div>
+</main>
+<script src="catalog.js"></script>
+<script src="playground.js"></script></body></html>

@@ -8,9 +8,9 @@
   </picture>
 <br />
 <br />
-  Expressive SwiftUI components, effects, and interaction patterns.
+  Drop-in motion and visual flair for SwiftUI.
   <br />
-  Built to help Swift developers add polish without rebuilding every animation from scratch.
+  Animated text, tactile buttons, and eye-catching surfaces &mdash; small APIs, native rendering, no dependencies.
 
   <br />
   <br />
@@ -31,14 +31,14 @@
 
 <br />
 
-## Small details. Remarkable interfaces.
+## Motion and flair, the SwiftUI way
 
-**SwiftBits is a native SwiftUI component library for expressive apps.** Compose animated text, tactile controls, useful feedback, and flexible containers with small, readable APIs. Own your state, bring your content, and customize the result.
+**SwiftBits is a native SwiftUI library for the expressive parts of an interface** &mdash; the glowing button, the number that rolls, the card that lights up under your cursor, the text that resolves out of noise. Inspired by [React Bits](https://github.com/DavidHDev/react-bits), rebuilt so it renders and animates natively. You own the state and the content; SwiftBits owns the polish.
 
-- **11 components + 1 effect.** From a glowing call to action to a complete empty state.
-- **SwiftUI all the way down.** Bindings, view builders, semantic styles, and native controls.
-- **A browser playground.** Explore interactive component demos with no Xcode setup.
-- **Built to grow.** Organized source, DocC guides, deterministic tests, and a documented component contract.
+- **Native rendering, no dependencies.** Real SwiftUI views, bindings, view builders, and semantic styles &mdash; not a wrapper around a canvas.
+- **Small APIs.** One expressive idea per component, sensible defaults, `LocalizedStringKey` labels, and haptics where they help.
+- **Accessible by default.** Reduce Motion, Reduce Transparency, Dynamic Type, VoiceOver, and keyboard paths are handled, not bolted on.
+- **A browser playground.** Explore every component as a live web demo with no Xcode setup, and embed the demos in Framer.
 
 ## Start in a minute
 
@@ -69,7 +69,7 @@ Add the dependency to your package and the product to your app target:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/adamsaldev/swift-bits.git", branch: "main")
+    .package(url: "https://github.com/adamsaldev/swift-bits.git", from: "0.1.0")
 ],
 targets: [
     .target(
@@ -79,43 +79,49 @@ targets: [
 ]
 ```
 
-The project is currently an **untagged MVP**. Pin a commit for reproducible integration; switch to a semantic version after the first release is published.
+SwiftBits is at **0.1.0**. While the major version is `0`, minor releases may contain breaking API changes; pin with `.upToNextMinor(from: "0.1.0")` if you need that guarantee.
 
 </details>
 
 ## Components
 
-### Actions & selection
-
-| Component | What it does | Guide |
-| --- | --- | --- |
-| [`GlowButton`](Sources/SwiftBits/Components/Buttons/GlowButton.swift) | Tinted glow with pressed and disabled feedback | [Quick start](#start-in-a-minute) |
-| [`HoldToConfirmButton`](Sources/SwiftBits/Components/Buttons/HoldToConfirmButton.swift) | Cancellable hold, plus keyboard and VoiceOver confirmation | [Buttons](Sources/SwiftBits/SwiftBits.docc/FirstCollection.md#buttons) |
-| [`FilterChip`](Sources/SwiftBits/Components/Controls/FilterChip.swift) | Binding-driven selection with a visible checkmark | [Filters](Sources/SwiftBits/SwiftBits.docc/EverydayComponents.md#selectable-filters) |
-
-### Text & feedback
+### Expressive
 
 | Component | What it does | Guide |
 | --- | --- | --- |
 | [`ScrambleText`](Sources/SwiftBits/Components/Text/ScrambleText.swift) | Resolves scrambled characters into your text | [Text](Sources/SwiftBits/SwiftBits.docc/FirstCollection.md#text) |
-| [`RollingNumber`](Sources/SwiftBits/Components/Text/RollingNumber.swift) | Localized numeric transitions | [Text](Sources/SwiftBits/SwiftBits.docc/FirstCollection.md#text) |
-| [`ProgressRing`](Sources/SwiftBits/Components/Feedback/ProgressRing.swift) | Animated determinate progress with custom center content | [Progress](Sources/SwiftBits/SwiftBits.docc/EverydayComponents.md#progress) |
-| [`StatusBadge`](Sources/SwiftBits/Components/Feedback/StatusBadge.swift) | Compact status with semantic text and a symbol | [Status](Sources/SwiftBits/SwiftBits.docc/EverydayComponents.md#status) |
-| [`EmptyState`](Sources/SwiftBits/Components/Feedback/EmptyState.swift) | Clear empty-state messaging and recovery actions | [Empty states](Sources/SwiftBits/SwiftBits.docc/EverydayComponents.md#empty-states) |
+| [`RollingNumber`](Sources/SwiftBits/Components/Text/RollingNumber.swift) | Vertical odometer transitions for localized numbers | [Text](Sources/SwiftBits/SwiftBits.docc/FirstCollection.md#text) |
+| [`GlowButton`](Sources/SwiftBits/Components/Buttons/GlowButton.swift) | Tinted glow with pressed, disabled, and haptic feedback | [Quick start](#start-in-a-minute) |
+| [`SpotlightCard`](Sources/SwiftBits/Components/Cards/SpotlightCard.swift) | Radial highlight that follows the pointer or touch | [Cards](Sources/SwiftBits/SwiftBits.docc/FirstCollection.md#cards) |
+| [`HoldToConfirmButton`](Sources/SwiftBits/Components/Buttons/HoldToConfirmButton.swift) | Cancellable hold with a filling track, plus a keyboard/VoiceOver path | [Buttons](Sources/SwiftBits/SwiftBits.docc/FirstCollection.md#buttons) |
+| [`.shimmer()`](Sources/SwiftBits/Modifiers/ShimmerModifier.swift) | Animated light sweep over any view | [Example below](#compose-your-own) |
 
-### Containers, layout & effects
+### Everyday building blocks
 
 | Component | What it does | Guide |
 | --- | --- | --- |
-| [`SpotlightCard`](Sources/SwiftBits/Components/Cards/SpotlightCard.swift) | Pointer and touch-following radial highlight | [Cards](Sources/SwiftBits/SwiftBits.docc/FirstCollection.md#cards) |
+| [`FilterChip`](Sources/SwiftBits/Components/Controls/FilterChip.swift) | Binding-driven selection with a checkmark and selection haptic | [Filters](Sources/SwiftBits/SwiftBits.docc/EverydayComponents.md#selectable-filters) |
+| [`StatusBadge`](Sources/SwiftBits/Components/Feedback/StatusBadge.swift) | Compact status with semantic text and a symbol | [Status](Sources/SwiftBits/SwiftBits.docc/EverydayComponents.md#status) |
+| [`ProgressRing`](Sources/SwiftBits/Components/Feedback/ProgressRing.swift) | Determinate progress with custom center content | [Progress](Sources/SwiftBits/SwiftBits.docc/EverydayComponents.md#progress) |
+| [`EmptyState`](Sources/SwiftBits/Components/Feedback/EmptyState.swift) | Empty-state messaging with caller-owned recovery actions | [Empty states](Sources/SwiftBits/SwiftBits.docc/EverydayComponents.md#empty-states) |
 | [`SkeletonView`](Sources/SwiftBits/Components/Loading/SkeletonView.swift) | Layout-preserving loading placeholders | [Loading](Sources/SwiftBits/SwiftBits.docc/FirstCollection.md#skeleton-layouts) |
 | [`FlowLayout`](Sources/SwiftBits/Layouts/FlowLayout.swift) | Wrapping rows for tags and filters, including RTL | [Layout](Sources/SwiftBits/SwiftBits.docc/EverydayComponents.md#wrapping-layout) |
-| [`.shimmer()`](Sources/SwiftBits/Modifiers/ShimmerModifier.swift) | Optional animated light sweep over any view | [Example below](#compose-your-own) |
+
+## Roadmap
+
+SwiftBits is early. The direction is more of the expressive surface, built natively:
+
+- **Animated backgrounds** &mdash; `MeshGradient`-driven aurora and gradient fields, a subtle noise/grain layer.
+- **Text effects** &mdash; per-character reveal (`TextRenderer`), blur-in, shiny sweep, split/stagger.
+- **Micro-interactions** &mdash; click spark, magnetic hover, animated border, press-scale styles.
+- **Toolkit fills** &mdash; toast/overlay presentation, `AsyncButton`, shimmer presets.
+
+Have a request? Open a [component request](.github/ISSUE_TEMPLATE/component_request.yml). Ports from React Bits should credit and preserve the original license.
 
 ## Compose your own
 
 ```swift
-// Inside an iOS 26+ / macOS 26+ view:
+// Inside an iOS 17+ / macOS 14+ view:
 @State private var favoritesOnly = true
 @Environment(\.layoutDirection) private var layoutDirection
 
@@ -140,24 +146,26 @@ var body: some View {
 
 ## Browser playground
 
-The [browser playground](Preview/index.html) is the project's only preview surface. Clone the repository and open `Preview/index.html` in your browser—no build, server, or Xcode required.
+The [browser playground](Preview/index.html) displays live HTML/CSS/JavaScript demos in thumbnail-sized cards. Every component has an isolated preview that can also be embedded directly in Framer.
 
 ```sh
-git clone https://github.com/adamsaldev/swift-bits.git
-cd swift-bits
-open Preview/index.html
+python3 scripts/build_previews.py
+python3 -m http.server 4173 --directory Preview/public
 ```
 
-The playground currently contains interactive approximations of five components. SwiftUI source remains authoritative for native rendering and behavior.
+Open `http://localhost:4173/` for the gallery. Each live card has its own route, such as `http://localhost:4173/previews/glow-button/`. After building, you can also open `Preview/index.html` directly in your browser.
+
+Author each demo in `Preview/components/<slug>/` alongside its metadata and complete SwiftUI snippet. The build produces all 12 live previews, the gallery, JSON/CSV catalogs, and copyable snippets. A GitHub Actions workflow validates these files and publishes them to GitHub Pages after Pages is enabled for the repository.
+
+See [Live previews and Framer integration](docs/LIVE_PREVIEWS.md) for the folder structure, publishing setup, and embed contract. Browser demos approximate native behavior; SwiftUI source remains authoritative.
 
 ## Requirements
 
 | Surface | Minimum OS | Build toolchain |
 | --- | --- | --- |
-| Full collection | iOS 26 / macOS 26 | Xcode 26+, Swift 6 |
-| `GlowButton` & `.shimmer()` | iOS 17 / macOS 14 | Xcode 26+ to build the current package |
+| Every component and effect | iOS 17 / macOS 14 | Xcode 26+, Swift 6 |
 
-The package retains its lower deployment floor for existing adopters; newer APIs are explicitly availability-gated. There are **no third-party package dependencies**.
+The whole collection shares one deployment floor. There are **no third-party package dependencies**.
 
 ## A repository built to grow
 
@@ -170,7 +178,7 @@ Sources/SwiftBits/
 └── SwiftBits.docc/    API topics and practical guides
 Tests/                Layout and behavior regression tests
 Assets/README/        Logo assets
-Preview/              Browser playground (the only preview)
+Preview/              Per-component live web demos, snippets, and gallery
 docs/                 Component, accessibility, and release guides
 scripts/              Repeatable validation
 .github/              CI, issue forms, and PR template

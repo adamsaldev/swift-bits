@@ -1,20 +1,27 @@
 import SwiftUI
 
 /// A compact informational label. Status is communicated by text and symbol, never color alone.
-@available(iOS 26.0, macOS 26.0, *)
 public struct StatusBadge: View {
-    private let title: String
+    private let title: Text
     private let systemImage: String
     private let tint: Color
 
-    public init(_ title: String, systemImage: String = "circle.fill", tint: Color = .accentColor) {
+    public init(_ titleKey: LocalizedStringKey, systemImage: String = "circle.fill", tint: Color = .accentColor) {
+        self.init(title: Text(titleKey), systemImage: systemImage, tint: tint)
+    }
+
+    public init(_ title: some StringProtocol, systemImage: String = "circle.fill", tint: Color = .accentColor) {
+        self.init(title: Text(title), systemImage: systemImage, tint: tint)
+    }
+
+    private init(title: Text, systemImage: String, tint: Color) {
         self.title = title
         self.systemImage = systemImage
         self.tint = tint
     }
 
     public var body: some View {
-        Label(title, systemImage: systemImage)
+        Label { title } icon: { Image(systemName: systemImage) }
             .font(.caption.weight(.semibold))
             .padding(.horizontal, 10)
             .padding(.vertical, 6)

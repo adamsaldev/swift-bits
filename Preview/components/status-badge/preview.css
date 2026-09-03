@@ -1,0 +1,11 @@
+#status-badge .stage{background:#030504}
+
+.badge-demo{display:flex;flex-direction:column;align-items:start;gap:15px}
+
+.badge{font-size:12px;border:1px solid;border-radius:20px;padding:6px 12px}
+
+.green{color:#8adbab;background:#11271b;border-color:#224d32}
+
+.amber{color:#e5c280;background:#2a2213;border-color:#584624}
+
+.blue{color:#9dbffd;background:#172135;border-color:#2c4263}
