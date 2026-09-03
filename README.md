@@ -4,7 +4,7 @@
   <picture>
     <source media="(prefers-color-scheme: light)" srcset="Assets/README/swift-bits-logo-light.svg">
     <source media="(prefers-color-scheme: dark)" srcset="Assets/README/swift-bits-logo-dark.svg">
-    <img src="Assets/README/swift-bits-logo-light.svg" alt="SwiftBits logo" width="600">
+    <img src="Assets/README/swift-bits-logo-light.svg" alt="SwiftBits logo" width="400">
   </picture>
 <br />
 <br />
