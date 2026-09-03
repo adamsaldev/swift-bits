@@ -169,7 +169,7 @@ See [Live previews and Framer integration](docs/LIVE_PREVIEWS.md) for the folder
 | --- | --- | --- |
 | Every component and effect | iOS 17 / macOS 14 | Xcode 26+, Swift 6 |
 
-The whole collection shares one deployment floor. **The `SwiftBits` library has no dependencies**; the test target alone uses [ViewInspector](https://github.com/nalexn/ViewInspector) and [swift-snapshot-testing](https://github.com/pointfreeco/swift-snapshot-testing).
+The whole collection shares one deployment floor. **The `SwiftBits` library has no dependencies**; the test target alone uses [ViewInspector](https://github.com/nalexn/ViewInspector) for accessibility assertions.
 
 ## A repository built to grow
 

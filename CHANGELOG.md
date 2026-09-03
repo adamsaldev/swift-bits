@@ -10,7 +10,7 @@ Notable changes are recorded here. SwiftBits follows semantic versioning; 0.x AP
 - `MeshGradientBackground` — a drifting `MeshGradient` surface (iOS 18 / macOS 15).
 - `.starBorder()` — a rotating gradient border for any view.
 - `.clickSpark()` — a spark burst from the tap location on any view.
-- Test tooling: `ViewInspector` for structural accessibility assertions and `swift-snapshot-testing` for visual regression snapshots (`Tests/SwiftBitsTests/__Snapshots__/`). The `SwiftBits` library itself remains dependency-free.
+- Test tooling: `ViewInspector` for structural accessibility assertions (`AccessibilityTests.swift`). The `SwiftBits` library itself remains dependency-free; ViewInspector has no transitive dependencies.
 
 ## 0.1.0 — 2026-09-03
 
