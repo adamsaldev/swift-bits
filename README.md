@@ -15,10 +15,16 @@
   <br />
   <br />
 
-  <a href="https://github.com/adamsaldev/swift-bits/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/adamsaldev/swift-bits?style=flat-square"></a>
-  <a href="https://github.com/adamsaldev/swift-bits/blob/main/LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/license-MIT-blue?style=flat-square"></a>
-  <a href="https://github.com/adamsaldev/swift-bits/actions/workflows/ci.yml"><img alt="CI status" src="https://img.shields.io/github/actions/workflow/status/adamsaldev/swift-bits/ci.yml?branch=main&style=flat-square&label=build"></a>
-  <img alt="Swift 6" src="https://img.shields.io/badge/Swift-6.0-F05138?style=flat-square&logo=swift&logoColor=white">
+  <a href="https://github.com/adamsaldev/swift-bits/stargazers">
+  <img alt="GitHub Stars" src="https://img.shields.io/github/stars/adamsaldev/swift-bits?style=for-the-badge&logo=github&label=Stars">
+</a>
+<a href="https://github.com/adamsaldev/swift-bits/blob/main/LICENSE">
+  <img alt="MIT License" src="https://img.shields.io/badge/License-MIT-22C55E?style=for-the-badge">
+</a>
+<a href="https://github.com/adamsaldev/swift-bits/actions/workflows/ci.yml">
+  <img alt="Build Status" src="https://img.shields.io/github/actions/workflow/status/adamsaldev/swift-bits/ci.yml?branch=main&style=for-the-badge&logo=githubactions&logoColor=white&label=Build">
+</a>
+<img alt="Swift 6" src="https://img.shields.io/badge/Swift-6.0-F05138?style=for-the-badge&logo=swift&logoColor=white">
 
   <br />
   <br />
