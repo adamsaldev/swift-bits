@@ -8,10 +8,13 @@ Notable changes are recorded here. SwiftBits follows semantic versioning; 0.x AP
 
 - `FilterChip`, `StatusBadge`, `ProgressRing`, and `EmptyState` for everyday interface states.
 - `FlowLayout` with wrapping rows, configurable spacing, and right-to-left placement.
-- Runnable macOS gallery: `swift run SwiftBitsDemo`.
-- Native SwiftUI README showcase with a reproducible snapshot command.
+- Browser playground as the sole preview surface.
 - Everyday component guide, component contract, accessibility review, and release process.
 - Layout boundary tests, numeric edge-case tests, iOS compilation, and DocC checks.
+
+### Removed
+
+- Native gallery, Xcode preview, macOS demo executable and launcher, and static README showcase.
 
 ### Fixed
 

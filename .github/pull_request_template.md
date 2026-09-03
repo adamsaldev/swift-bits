@@ -5,7 +5,7 @@ Explain the visible behavior and why it helps. Include a screenshot for UI chang
 ## Validation
 
 - [ ] `scripts/validate.sh` passes
-- [ ] Relevant gallery states and accessibility settings checked
+- [ ] Relevant browser playground states and accessibility settings checked
 - [ ] Public API documented in DocC and README catalog updated
 - [ ] Changelog updated
 

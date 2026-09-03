@@ -25,16 +25,11 @@
 
   <a href="Sources/SwiftBits/SwiftBits.docc/FirstCollection.md">📖 Documentation</a> ·
   <a href="#start-in-a-minute">⚡ Quick Start</a> ·
-  <a href="#components">🧩 Components</a>
+  <a href="#components">🧩 Components</a> ·
+  <a href="#browser-playground">▶ Browser Playground</a>
 </div>
 
 <br />
-
-<div align="center">
-  <img src="Assets/README/showcase.png" alt="Native SwiftUI components: glowing and morphing buttons, rolling numbers, progress ring, filter chips, expandable card, and empty state" width="1200">
-  <br />
-  <sub>Rendered from the actual SwiftUI components. No mockups, no external dependencies.</sub>
-</div>
 
 ## Small details. Remarkable interfaces.
 
@@ -42,7 +37,7 @@
 
 - **14 components + 1 effect.** From a glowing call to action to a complete empty state.
 - **SwiftUI all the way down.** Bindings, view builders, semantic styles, and native controls.
-- **A working gallery.** Try the components locally, then copy a focused example into your app.
+- **A browser playground.** Explore interactive component demos with no Xcode setup.
 - **Built to grow.** Organized source, DocC guides, deterministic tests, and a documented component contract.
 
 ## Start in a minute
@@ -84,7 +79,7 @@ targets: [
 ]
 ```
 
-The project is currently an **untagged MVP**. Pin a commit for reproducible integration; switch to a semantic version after the first release is published. The demo executable is a development tool and is not needed by your app.
+The project is currently an **untagged MVP**. Pin a commit for reproducible integration; switch to a semantic version after the first release is published.
 
 </details>
 
@@ -146,31 +141,24 @@ var body: some View {
 }
 ```
 
-## Explore locally
+## Browser playground
+
+The [browser playground](Preview/index.html) is the project's only preview surface. Clone the repository and open `Preview/index.html` in your browser—no build, server, or Xcode required.
 
 ```sh
 git clone https://github.com/adamsaldev/swift-bits.git
 cd swift-bits
-swift run SwiftBitsDemo
+open Preview/index.html
 ```
 
-For a standard macOS app bundle with Dock integration, run `scripts/run-demo.sh`.
-
-The macOS gallery includes interactive examples of every component. Open `Package.swift` in Xcode to use the canvas, or embed `SwiftBitsGallery()` in an iOS 26+ app. An optional [browser playground](Preview/index.html) approximates the original eight-component collection; native SwiftUI is the source of truth.
-
-To regenerate the README image on macOS 26+:
-
-```sh
-swift run SwiftBitsDemo --snapshot Assets/README/showcase.png
-```
+The playground currently contains interactive approximations of the original eight components. SwiftUI source remains authoritative for native rendering and behavior.
 
 ## Requirements
 
 | Surface | Minimum OS | Build toolchain |
 | --- | --- | --- |
-| Full collection & gallery | iOS 26 / macOS 26 | Xcode 26+, Swift 6 |
+| Full collection | iOS 26 / macOS 26 | Xcode 26+, Swift 6 |
 | `GlowButton` & `.shimmer()` | iOS 17 / macOS 14 | Xcode 26+ to build the current package |
-| Native demo executable | macOS 26 | Xcode 26+, Swift 6 |
 
 The package retains its lower deployment floor for existing adopters; newer APIs are explicitly availability-gated. There are **no third-party package dependencies**.
 
@@ -182,18 +170,16 @@ Sources/SwiftBits/
 ├── Layouts/          Composable layout primitives
 ├── Modifiers/        Effects on existing views
 ├── Utilities/        Shared, testable helpers
-├── Examples/         Embeddable SwiftBitsGallery
 └── SwiftBits.docc/    API topics and practical guides
-Examples/             Runnable native demo and showcase renderer
 Tests/                Layout and behavior regression tests
-Assets/README/        Logos and native showcase
-Preview/              Optional browser approximation
+Assets/README/        Logo assets
+Preview/              Browser playground (the only preview)
 docs/                 Component, accessibility, and release guides
 scripts/              Repeatable validation
 .github/              CI, issue forms, and PR template
 ```
 
-**Adding the next component?** Start with the [component contract](docs/COMPONENT_GUIDE.md), add its gallery example and DocC guide, and run `scripts/validate.sh`. CI runs macOS tests, iOS compilation, and a DocC build.
+**Adding the next component?** Start with the [component contract](docs/COMPONENT_GUIDE.md), add its browser playground example and DocC guide, and run `scripts/validate.sh`. CI runs macOS tests, iOS compilation, and a DocC build.
 
 | For developers | For maintainers |
 | --- | --- |

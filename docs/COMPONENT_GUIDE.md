@@ -33,7 +33,7 @@ public struct ExampleComponent<Content: View>: View {
 
 - [ ] Public symbol has a documentation comment and a DocC topic link.
 - [ ] Usage snippet includes any required state, frame, or environment values.
-- [ ] Gallery shows the normal, empty, disabled, and failure states that apply.
+- [ ] Browser playground shows the normal, empty, disabled, and failure states that apply.
 - [ ] Accessibility review includes motion, text size, contrast, and keyboard behavior.
 - [ ] Tests cover reusable logic, boundary conditions, and regressions rather than matching implementation line-for-line.
 - [ ] README catalog and changelog are updated.
@@ -47,13 +47,11 @@ public struct ExampleComponent<Content: View>: View {
 | `Sources/SwiftBits/Layouts` | Reusable layout primitives |
 | `Sources/SwiftBits/Modifiers` | Effects on caller-owned views |
 | `Sources/SwiftBits/Utilities` | Small shared helpers |
-| `Sources/SwiftBits/Examples` | Embeddable interactive gallery |
 | `Sources/SwiftBits/SwiftBits.docc` | API topics and usage guides |
-| `Examples/SwiftBitsDemo` | Native macOS launcher and README render |
 | `Tests/SwiftBitsTests` | Deterministic behavior tests |
-| `Assets/README` | Logo assets and native component showcase |
-| `Preview` | Optional browser approximation of the first collection |
+| `Assets/README` | Logo assets |
+| `Preview` | Browser playground; the only preview surface |
 | `docs` | Maintainer and contribution guides |
 | `scripts` | Repeatable local validation |
 
-The browser preview is illustrative. Native SwiftUI is the source of truth; it should never be necessary to maintain a JavaScript counterpart to ship a new Swift component.
+The browser playground is the only preview surface. Add new component demos there and document differences from native behavior. SwiftUI source remains authoritative for the library implementation.

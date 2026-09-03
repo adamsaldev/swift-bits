@@ -34,10 +34,9 @@ adding interaction and visual polish not included with the standard controls.
 - ``SkeletonView``
 - ``CollapsingHeader``
 
-### Guides and examples
+### Guides
 
 - <doc:FirstCollection>
-- ``SwiftBitsGallery``
 
 ### Controls and feedback
 

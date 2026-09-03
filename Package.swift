@@ -9,12 +9,10 @@ let package = Package(
         .macOS(.v14)
     ],
     products: [
-        .library(name: "SwiftBits", targets: ["SwiftBits"]),
-        .executable(name: "SwiftBitsDemo", targets: ["SwiftBitsDemo"])
+        .library(name: "SwiftBits", targets: ["SwiftBits"])
     ],
     targets: [
         .target(name: "SwiftBits"),
-        .executableTarget(name: "SwiftBitsDemo", dependencies: ["SwiftBits"], path: "Examples/SwiftBitsDemo"),
         .testTarget(name: "SwiftBitsTests", dependencies: ["SwiftBits"])
     ]
 )

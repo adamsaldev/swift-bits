@@ -4,7 +4,7 @@ SwiftBits uses semantic text styles and native buttons, exposes meaningful label
 
 ## Manual review before a release
 
-Run `swift run SwiftBitsDemo` on macOS 26, and embed `SwiftBitsGallery()` in an iOS 26 app. Review on both platforms:
+Open `Preview/index.html` to review the browser demos with keyboard navigation and browser accessibility tools. Browser behavior does not establish native accessibility compliance. When validating the library in a consuming app, review the following:
 
 - Light and dark appearances; Increase Contrast; Reduce Transparency.
 - Default and largest accessibility text sizes. No truncated essential text or unreachable actions.
@@ -20,4 +20,4 @@ Supply localized strings and meaningful accessibility names. Choose tint colors 
 
 ## Validation scope
 
-Automated tests cover layout arithmetic and numeric boundaries. The README showcase is rendered from SwiftUI and visually reviewed. Full VoiceOver, touch, and device accessibility certification remains a manual release check; unit tests do not establish it.
+Automated tests cover layout arithmetic and numeric boundaries. The browser playground approximates native interactions. Full VoiceOver, touch, and device accessibility certification remains a manual release check; unit tests do not establish it.

@@ -1,6 +1,6 @@
 # First collection
 
-Eight reusable components for iOS 26 and macOS 26. Import `SwiftUI` and `SwiftBits` to use the following snippets inside a view. The interactive ``SwiftBitsGallery`` includes all eight examples.
+Eight reusable components for iOS 26 and macOS 26. Import `SwiftUI` and `SwiftBits` to use the following snippets inside a view. The repository’s browser playground demonstrates approximations of these eight components.
 
 ## Text
 

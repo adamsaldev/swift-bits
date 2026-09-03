@@ -6,7 +6,7 @@ The package is in the 0.x MVP stage. `main` is the development branch. Publish a
 2. Complete the manual [accessibility review](ACCESSIBILITY.md) on macOS and iOS.
 3. Review every README/DocC snippet and confirm the public API is intentional.
 4. Move `Unreleased` changelog entries under the chosen semantic version and date.
-5. Refresh the native showcase on macOS 26+: `swift run SwiftBitsDemo --snapshot Assets/README/showcase.png`.
+5. Check `Preview/index.html`, the only preview surface, and confirm its examples and stated coverage are current.
 6. Commit the release notes, create an annotated version tag (for example `git tag -a 0.1.0 -m "SwiftBits 0.1.0"`), then push that tag.
 7. Publish a GitHub release using the matching changelog section. Update README installation to the tagged version and verify a clean consumer can resolve it.
 
