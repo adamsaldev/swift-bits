@@ -1,0 +1,33 @@
+#star-border .stage { background: #0f1020; }
+
+@property --star-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.star-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: center;
+  padding: 26px 34px;
+  border-radius: 18px;
+  color: #f4f4f8;
+  background:
+    linear-gradient(#14152b, #14152b) padding-box,
+    conic-gradient(from var(--star-angle), #4f8cff, #a855f7, #ec4899, #4f8cff) border-box;
+  border: 2px solid transparent;
+  animation: star-spin 6s linear infinite;
+}
+
+.star-card strong { font-size: 18px; }
+.star-card span { font-size: 12px; color: #b9b9c9; }
+
+@keyframes star-spin {
+  to { --star-angle: 360deg; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .star-card { animation: none; }
+}

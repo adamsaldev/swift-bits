@@ -1,0 +1,10 @@
+{
+  "slug": "click-spark",
+  "name": "Click Spark",
+  "category": "controls",
+  "description": "A spark burst from the tap location on any view.",
+  "source": "Sources/SwiftBits/Modifiers/ClickSparkModifier.swift",
+  "order": 14,
+  "aspectRatio": "4 / 3",
+  "previewKind": "live-html"
+}

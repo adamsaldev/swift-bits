@@ -6,3 +6,9 @@ xcuserdata/
 *.xcuserstate
 Preview/public/
 __pycache__/
+
+# File-sync conflict copies (Dropbox / iCloud / etc.)
+* 2
+* 2.*
+*\ [0-9]
+*.sb-*

@@ -2,6 +2,12 @@
 
 A preview is real HTML, CSS, and JavaScript running inside a card-sized frame. The gallery and Framer use the same standalone preview pages. No screenshot, image, or video generation is involved.
 
+## What a preview is and is not
+
+Each preview is a hand-written **web approximation** of a native SwiftUI component, not a rendering of it. It exists so people can feel the interaction and read the copyable Swift snippet without opening Xcode. The Swift source in `Sources/SwiftBits/` is always the source of truth; every embed carries a visible "web approximation" note and the gallery iframes say so in their title.
+
+Duplication is kept small on purpose rather than eliminated: the builder prepends one shared `shared/harness.js` (the `$`, `reduced`, `raf` helpers) and wraps each `preview.js` in its own function scope, so a component file is just the markup, the styling, and the few lines that are actually unique to that demo. Generating the HTML/CSS from templates was considered and rejected — the demos are too visually different from each other for a template to save more than it costs.
+
 ## Source layout
 
 ```text
@@ -14,6 +20,7 @@ Preview/
     preview.js                      This demo's behavior
     snippet.swift                   Complete copyable SwiftUI example
   shared/frame.css                  Shared embed sizing and accessibility rules
+  shared/harness.js                 Shared JS helpers, prepended to every preview
   gallery.html                      Gallery shell; cards are generated
   styles.css                        Gallery styling only
   playground.js                     Gallery search, sorting, and copy actions
@@ -47,8 +54,8 @@ This validates the catalog, source/snippet exports, isolated document IDs, JavaS
 1. Implement and document the native Swift component as described in `COMPONENT_GUIDE.md`.
 2. Create `Preview/components/<slug>/` with the five files listed above. Copy a similar existing component as a starting point.
 3. Set a unique kebab-case `slug`, unique `name`, unique integer `order`, `description`, valid `category`, repository-relative `source`, `aspectRatio: "4 / 3"`, and `previewKind: "live-html"` in `component.json`.
-4. Use a markup fragment in `preview.html`, normally a `.stage` wrapper. Put all demo controls inside that fragment. JavaScript runs only in this preview's document, so it must not refer to gallery controls or other components.
-5. Add component-specific styles to `preview.css`. Size against the embedded frame, not the full website. Preview width is typically 250–400 pixels. Keep interactions keyboard-accessible and respect reduced motion. Keep assets self-contained; the current previews require no external resources.
+4. Use a markup fragment in `preview.html`, normally a `.stage` wrapper. Put all demo controls inside that fragment. JavaScript runs only in this preview's document, so it must not refer to gallery controls or other components. Your `preview.js` is wrapped in a function scope and may use `$`, `reduced()`, `raf`, and `cancelRaf` from `shared/harness.js` without redeclaring them.
+5. Add component-specific styles to `preview.css`. Size against the embedded frame, not the full website. Preview width is typically 250–400 pixels. Keep interactions keyboard-accessible and respect reduced motion — the builder also adds a global `prefers-reduced-motion` rule, but a decorative loop should still have its own fallback. Keep assets self-contained; the current previews require no external resources.
 6. Put a complete SwiftUI `View` example, with required state and imports, in `snippet.swift`.
 7. Build and validate. The gallery and catalog discover the component automatically; do not manually register it in another list.
 

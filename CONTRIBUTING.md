@@ -22,10 +22,14 @@ The gallery and embeddable live cards are generated from `Preview/components/`. 
 2. Add one public view in the appropriate `Sources/SwiftBits/Components/` category, or a reusable layout in `Layouts/`.
 3. Add `component.json`, `preview.html`, `preview.css`, `preview.js`, and `snippet.swift` under `Preview/components/<slug>/`. Build and validate with `python3 -m unittest discover -s Tests/preview -v`. Label any differences from native behavior.
 4. Document its initializer, usage, ownership, accessibility behavior, and limitations in DocC. Link the symbol from `SwiftBits.md` and add it to the README catalog.
-5. Test meaningful logic and edge cases. Check the UI using the [accessibility review](docs/ACCESSIBILITY.md).
+5. Test meaningful logic and edge cases with XCTest, structural accessibility with ViewInspector, and (for a deterministic resting state) a `SnapshotTests` case. Check the UI using the [accessibility review](docs/ACCESSIBILITY.md).
 6. Run `scripts/validate.sh`, update `CHANGELOG.md`, and open a pull request.
 
-Use four-space indentation, descriptive names, semantic colors, and native controls. Avoid third-party dependencies and unrelated formatting changes. Public API changes should explain migration in the changelog. During the 0.x phase, breaking changes require a minor version increment.
+### Snapshot references
+
+Image references live in `Tests/SwiftBitsTests/__Snapshots__/` and comparison is deliberately loose (`precision: 0.95`). A new toolchain can still shift antialiasing enough to fail a comparison; when the change is expected, set `isRecording = true` in `SnapshotTests`, run `swift test` once, review the image diff, then set it back and commit the updated references.
+
+Use four-space indentation, descriptive names, semantic colors, and native controls. The `SwiftBits` library target must stay dependency-free; test-only dependencies are fine. Avoid unrelated formatting changes. Public API changes should explain migration in the changelog. During the 0.x phase, breaking changes require a minor version increment.
 
 ## Report a problem
 

@@ -35,7 +35,7 @@
 
 **SwiftBits is a native SwiftUI library for the expressive parts of an interface** &mdash; the glowing button, the number that rolls, the card that lights up under your cursor, the text that resolves out of noise. Inspired by [React Bits](https://github.com/DavidHDev/react-bits), rebuilt so it renders and animates natively. You own the state and the content; SwiftBits owns the polish.
 
-- **Native rendering, no dependencies.** Real SwiftUI views, bindings, view builders, and semantic styles &mdash; not a wrapper around a canvas.
+- **Native rendering, zero library dependencies.** Real SwiftUI views, bindings, view builders, and semantic styles &mdash; not a wrapper around a canvas.
 - **Small APIs.** One expressive idea per component, sensible defaults, `LocalizedStringKey` labels, and haptics where they help.
 - **Accessible by default.** Reduce Motion, Reduce Transparency, Dynamic Type, VoiceOver, and keyboard paths are handled, not bolted on.
 - **A browser playground.** Explore every component as a live web demo with no Xcode setup, and embed the demos in Framer.
@@ -90,10 +90,14 @@ SwiftBits is at **0.1.0**. While the major version is `0`, minor releases may co
 | Component | What it does | Guide |
 | --- | --- | --- |
 | [`ScrambleText`](Sources/SwiftBits/Components/Text/ScrambleText.swift) | Resolves scrambled characters into your text | [Text](Sources/SwiftBits/SwiftBits.docc/FirstCollection.md#text) |
+| [`ShinyText`](Sources/SwiftBits/Components/Text/ShinyText.swift) | Specular highlight that sweeps across a string on a loop | [Text](Sources/SwiftBits/SwiftBits.docc/FirstCollection.md#text) |
 | [`RollingNumber`](Sources/SwiftBits/Components/Text/RollingNumber.swift) | Vertical odometer transitions for localized numbers | [Text](Sources/SwiftBits/SwiftBits.docc/FirstCollection.md#text) |
 | [`GlowButton`](Sources/SwiftBits/Components/Buttons/GlowButton.swift) | Tinted glow with pressed, disabled, and haptic feedback | [Quick start](#start-in-a-minute) |
 | [`SpotlightCard`](Sources/SwiftBits/Components/Cards/SpotlightCard.swift) | Radial highlight that follows the pointer or touch | [Cards](Sources/SwiftBits/SwiftBits.docc/FirstCollection.md#cards) |
 | [`HoldToConfirmButton`](Sources/SwiftBits/Components/Buttons/HoldToConfirmButton.swift) | Cancellable hold with a filling track, plus a keyboard/VoiceOver path | [Buttons](Sources/SwiftBits/SwiftBits.docc/FirstCollection.md#buttons) |
+| [`MeshGradientBackground`](Sources/SwiftBits/Components/Backgrounds/MeshGradientBackground.swift) | Drifting `MeshGradient` surface (iOS 18 / macOS 15) | — |
+| [`.starBorder()`](Sources/SwiftBits/Modifiers/StarBorderModifier.swift) | Rotating gradient border around any view | — |
+| [`.clickSpark()`](Sources/SwiftBits/Modifiers/ClickSparkModifier.swift) | Spark burst from the tap location on any view | — |
 | [`.shimmer()`](Sources/SwiftBits/Modifiers/ShimmerModifier.swift) | Animated light sweep over any view | [Example below](#compose-your-own) |
 
 ### Everyday building blocks
@@ -111,9 +115,9 @@ SwiftBits is at **0.1.0**. While the major version is `0`, minor releases may co
 
 SwiftBits is early. The direction is more of the expressive surface, built natively:
 
-- **Animated backgrounds** &mdash; `MeshGradient`-driven aurora and gradient fields, a subtle noise/grain layer.
-- **Text effects** &mdash; per-character reveal (`TextRenderer`), blur-in, shiny sweep, split/stagger.
-- **Micro-interactions** &mdash; click spark, magnetic hover, animated border, press-scale styles.
+- **Backgrounds** &mdash; aurora and gradient fields on top of `MeshGradientBackground`, a subtle noise/grain layer.
+- **Text effects** &mdash; per-character reveal (`TextRenderer`), blur-in, split/stagger.
+- **Micro-interactions** &mdash; magnetic hover, press-scale button styles, ripple.
 - **Toolkit fills** &mdash; toast/overlay presentation, `AsyncButton`, shimmer presets.
 
 Have a request? Open a [component request](.github/ISSUE_TEMPLATE/component_request.yml). Ports from React Bits should credit and preserve the original license.
@@ -165,7 +169,7 @@ See [Live previews and Framer integration](docs/LIVE_PREVIEWS.md) for the folder
 | --- | --- | --- |
 | Every component and effect | iOS 17 / macOS 14 | Xcode 26+, Swift 6 |
 
-The whole collection shares one deployment floor. There are **no third-party package dependencies**.
+The whole collection shares one deployment floor. **The `SwiftBits` library has no dependencies**; the test target alone uses [ViewInspector](https://github.com/nalexn/ViewInspector) and [swift-snapshot-testing](https://github.com/pointfreeco/swift-snapshot-testing).
 
 ## A repository built to grow
 

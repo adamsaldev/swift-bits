@@ -21,11 +21,18 @@ Motion, Reduce Transparency, Dynamic Type, and VoiceOver. It is inspired by
 ### Effects
 
 - ``SwiftUICore/View/shimmer(active:duration:)``
+- ``SwiftUICore/View/starBorder(cornerRadius:lineWidth:colors:duration:)``
+- ``SwiftUICore/View/clickSpark(color:count:radius:duration:)``
 
 ### Text
 
 - ``ScrambleText``
+- ``ShinyText``
 - ``RollingNumber``
+
+### Backgrounds
+
+- ``MeshGradientBackground``
 
 ### Cards
 

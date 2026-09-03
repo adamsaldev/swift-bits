@@ -1,6 +1,3 @@
-'use strict';
-const $ = id => document.getElementById(id);
-const reduced = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
 // One confirmation per continuous hold, with an accessible two-activation alternative.
 let holdFrame,holding=false,holdDone=false,armed=false,armedTimer,resetTimer;
 function resetHold(){clearTimeout(resetTimer);cancelAnimationFrame(holdFrame);holding=false;holdDone=false;$('hold').style.setProperty('--progress',0);$('hold').classList.remove('done');$('hold').textContent='Hold to confirm'}

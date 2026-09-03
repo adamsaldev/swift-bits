@@ -50,9 +50,13 @@ def load_components():
     return sorted(components, key=lambda component: component[0]['order'])
 
 
+APPROX_NOTE = 'Web approximation — the SwiftUI source is authoritative'
+
+
 def build():
     components = load_components()  # Validate before touching previous build.
     frame_css = (PREVIEW / 'shared/frame.css').read_text()
+    harness_js = (PREVIEW / 'shared/harness.js').read_text()
     template = (PREVIEW / 'gallery.html').read_text()
     if template.count('<!-- COMPONENT_CARDS -->') != 1:
         raise ValueError('Gallery must contain exactly one component placeholder')
@@ -62,13 +66,18 @@ def build():
     for metadata, files, source in components:
         slug = metadata['slug']
         name = html.escape(metadata['name'], quote=True)
+        # Each preview.js runs in its own function scope after the shared harness, so
+        # components share `$`/`reduced`/`raf` without re-declaring them and cannot leak
+        # globals into one another.
+        script = f"{harness_js}\n(() => {{\n{files['preview.js']}\n}})();"
         preview = f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{name} — SwiftBits live preview</title>
 <style>{frame_css}\n{files['preview.css']}</style></head>
 <body><div class="preview" id="{slug}">{files['preview.html']}</div>
-<script>{files['preview.js']}</script></body></html>
+<p class="approx-note" role="note">{APPROX_NOTE}</p>
+<script>{script}</script></body></html>
 '''
         pages[f'previews/{slug}/index.html'] = preview
         pages[f'snippets/{slug}.swift'] = files['snippet.swift']
@@ -79,7 +88,7 @@ def build():
                   'revision': hashlib.sha256(preview.encode()).hexdigest()[:16]}
         catalog['components'].append(record)
         cards.append(f'''<article id="{slug}" data-category="{metadata['category']}" aria-labelledby="title-{slug}">
-  <iframe class="preview-frame" src="{record['previewPath']}index.html" title="{name} interactive preview" loading="lazy" sandbox="allow-scripts"></iframe>
+  <iframe class="preview-frame" src="{record['previewPath']}index.html" title="{name} interactive preview — web approximation of the SwiftUI component" loading="lazy" sandbox="allow-scripts"></iframe>
   <div class="meta"><div><h3 id="title-{slug}">{name}</h3><p>SwiftBits · Free</p></div><button class="copy-button" data-component="{name}" aria-label="Copy {name} SwiftUI snippet">Copy</button></div>
 </article>''')
     serialized = json.dumps(catalog, indent=2, ensure_ascii=False)

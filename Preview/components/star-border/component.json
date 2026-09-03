@@ -1,0 +1,10 @@
+{
+  "slug": "star-border",
+  "name": "Star Border",
+  "category": "cards",
+  "description": "A rotating gradient border around any view.",
+  "source": "Sources/SwiftBits/Modifiers/StarBorderModifier.swift",
+  "order": 13,
+  "aspectRatio": "4 / 3",
+  "previewKind": "live-html"
+}

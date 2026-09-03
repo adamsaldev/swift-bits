@@ -8,12 +8,17 @@ Five reusable components for iOS 17 and macOS 14. Import `SwiftUI` and `SwiftBit
 ScrambleText("Hello, SwiftBits", duration: 0.8)
     .font(.title.monospaced())
 
+ShinyText("Now shipping", highlight: .white)
+    .font(.title.bold())
+
 RollingNumber(score, format: .number.precision(.fractionLength(2)))
     .font(.largeTitle)
 RollingNumber(percent: completion, decimalPlaces: 1)
 ```
 
 `ScrambleText` replays when its text or configuration changes, preserves whitespace, and cancels its work when removed. VoiceOver reads the final text. Reduce Motion immediately displays the final value. A custom alphabet can be provided with `characters:`; an empty alphabet disables scrambling.
+
+`ShinyText` draws your string in `base` and sweeps a `highlight`-coloured band across it on a loop set by `duration`. The sweep stops under Reduce Motion and the text stays legible in both states. It is exposed to VoiceOver as one element with the full string.
 
 `RollingNumber` uses SwiftUI's native vertical numeric transition, including direction changes and changing digit counts. The number format controls grouping, precision, and locale. The percentage initializer accepts a fraction: 0.42 displays as 42%. Reduce Motion updates without animation.
 

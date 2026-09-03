@@ -18,5 +18,6 @@ button:focus-visible, summary:focus-visible, select:focus-visible { outline: 2px
 .controls button, .controls select { background: #333; color: white; border: 1px solid #555; border-radius: 6px; padding: 6px 8px; font-size: 12px; }
 .controls .status { color: #aaa; }
 .hint { display: none; }
+.approx-note { position: absolute; left: 0; right: 0; bottom: 0; margin: 0; padding: 4px 8px; font-size: 10px; line-height: 1.3; text-align: center; color: #6b6b6b; background: #ffffffcc; backdrop-filter: blur(4px); pointer-events: none; z-index: 3; }
 @media (hover: none) { .demo-options summary { opacity: 1; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }

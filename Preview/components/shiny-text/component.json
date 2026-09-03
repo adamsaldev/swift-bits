@@ -1,0 +1,10 @@
+{
+  "slug": "shiny-text",
+  "name": "ShinyText",
+  "category": "text",
+  "description": "A specular highlight that sweeps across a string on a loop.",
+  "source": "Sources/SwiftBits/Components/Text/ShinyText.swift",
+  "order": 12,
+  "aspectRatio": "4 / 3",
+  "previewKind": "live-html"
+}

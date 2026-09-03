@@ -1,0 +1,31 @@
+#click-spark .stage { background: #101014; cursor: pointer; }
+
+.spark-target {
+  padding: 14px 22px;
+  border-radius: 12px;
+  border: 1px solid #33343d;
+  background: #1c1d24;
+  color: #f2f2f5;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.spark {
+  position: absolute;
+  width: 2px;
+  height: 10px;
+  margin: -5px 0 0 -1px;
+  border-radius: 1px;
+  background: #f5c451;
+  pointer-events: none;
+  animation: spark-fly 0.42s ease-out forwards;
+}
+
+@keyframes spark-fly {
+  from { opacity: 1; transform: rotate(var(--angle)) translateY(4px); }
+  to { opacity: 0; transform: rotate(var(--angle)) translateY(var(--dist)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spark { display: none; }
+}

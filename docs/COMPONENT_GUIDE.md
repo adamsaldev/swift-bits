@@ -38,7 +38,8 @@ public struct ExampleComponent<Content: View>: View {
 - [ ] Accessibility review includes motion, text size, contrast, and keyboard behavior.
 - [ ] Labels are `LocalizedStringKey`; any new internal strings are added to `Localizable.xcstrings`.
 - [ ] Haptics, if any, fire only on discrete meaningful transitions.
-- [ ] Tests cover reusable logic, boundary conditions, and regressions rather than matching implementation line-for-line.
+- [ ] Tests cover reusable logic, boundary conditions, and regressions rather than matching implementation line-for-line. Add a ViewInspector assertion for any accessibility promise the component makes.
+- [ ] If the component has a deterministic resting state, add a `SnapshotTests` case and commit its reference image.
 - [ ] README catalog and changelog are updated.
 - [ ] macOS tests, iOS compilation, and DocC validation pass.
 
@@ -46,13 +47,13 @@ public struct ExampleComponent<Content: View>: View {
 
 | Location | Owns |
 | --- | --- |
-| `Sources/SwiftBits/Components` | Public views grouped by purpose |
+| `Sources/SwiftBits/Components` | Public views grouped by purpose (`Buttons`, `Text`, `Cards`, `Backgrounds`, `Feedback`, …) |
 | `Sources/SwiftBits/Layouts` | Reusable layout primitives |
 | `Sources/SwiftBits/Modifiers` | Effects on caller-owned views |
 | `Sources/SwiftBits/Utilities` | Small shared helpers |
 | `Sources/SwiftBits/Resources` | `Localizable.xcstrings` for the library's own strings |
 | `Sources/SwiftBits/SwiftBits.docc` | API topics and usage guides |
-| `Tests/SwiftBitsTests` | Deterministic behavior tests |
+| `Tests/SwiftBitsTests` | Behaviour tests, ViewInspector accessibility tests, and snapshot tests (`__Snapshots__/`) |
 | `Assets/README` | Logo assets |
 | `Preview/components/<slug>` | Live preview HTML, CSS, JavaScript, metadata, and Swift snippet |
 | `docs` | Maintainer and contribution guides |

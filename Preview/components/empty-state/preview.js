@@ -1,6 +1,3 @@
-'use strict';
-const $ = id => document.getElementById(id);
-const reduced = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
 let hasProject = false;
 $('empty-demo').addEventListener('click', () => {
  hasProject = !hasProject;

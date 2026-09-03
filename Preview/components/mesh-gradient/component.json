@@ -1,0 +1,10 @@
+{
+  "slug": "mesh-gradient",
+  "name": "MeshGradientBackground",
+  "category": "cards",
+  "description": "A drifting MeshGradient surface (iOS 18 / macOS 15).",
+  "source": "Sources/SwiftBits/Components/Backgrounds/MeshGradientBackground.swift",
+  "order": 15,
+  "aspectRatio": "4 / 3",
+  "previewKind": "live-html"
+}

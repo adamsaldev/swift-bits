@@ -1,4 +1,1 @@
-'use strict';
-const $ = id => document.getElementById(id);
-const reduced = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
 const spot=$('spotlight');spot.onpointermove=e=>{const r=spot.getBoundingClientRect();spot.style.setProperty('--x',e.clientX-r.left+'px');spot.style.setProperty('--y',e.clientY-r.top+'px');spot.classList.add('active')};spot.onpointerleave=()=>spot.classList.remove('active');spot.onpointerup=e=>{if(e.pointerType!=='mouse')spot.classList.remove('active')};spot.onpointercancel=()=>spot.classList.remove('active');
