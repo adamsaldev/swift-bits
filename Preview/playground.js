@@ -19,19 +19,8 @@ $('hold').onpointermove=e=>{if(!holding)return;const r=$('hold').getBoundingClie
 $('hold').onpointerup=cancelHold;$('hold').onpointercancel=cancelHold;$('hold').onlostpointercapture=cancelHold;
 $('hold').onclick=e=>{if(e.detail!==0||holdDone||holding)return;if(armed){completeHold()}else{armed=true;$('hold').textContent='Activate again to confirm';armedTimer=setTimeout(()=>{armed=false;resetHold()},5000)}};
 window.addEventListener('blur',()=>{cancelHold();armed=false;clearTimeout(armedTimer);if(!holdDone)resetHold()});
-// Caller-selected result states.
-let morphTimer;
-function morph(state){const b=$('morph');b.dataset.state=state;b.disabled=state==='loading'||state==='success';b.innerHTML=({idle:'Save changes',loading:'<span class="spinner" aria-hidden="true"></span>Saving…',success:'✓ Saved',failure:'! Try again'})[state];$('morph-status').textContent=({idle:'Ready when you are.',loading:'Saving your changes…',success:'Your changes are saved.',failure:'Something went wrong. You can retry.'})[state]}
-$('morph').onclick=()=>{morph('loading');const outcome=$('outcome').value;morphTimer=setTimeout(()=>morph(outcome),1400)};$('morph-reset').onclick=()=>{clearTimeout(morphTimer);morph('idle')};
 const spot=$('spotlight');spot.onpointermove=e=>{const r=spot.getBoundingClientRect();spot.style.setProperty('--x',e.clientX-r.left+'px');spot.style.setProperty('--y',e.clientY-r.top+'px');spot.classList.add('active')};spot.onpointerleave=()=>spot.classList.remove('active');spot.onpointerup=e=>{if(e.pointerType!=='mouse')spot.classList.remove('active')};spot.onpointercancel=()=>spot.classList.remove('active');
-$('expand-toggle').onclick=()=>{const open=$('expand').classList.toggle('open');$('expand-toggle').setAttribute('aria-expanded',open);$('detail').inert=!open};
 $('load-toggle').onclick=()=>{const loading=$('profile').classList.toggle('skeleton');$('profile').setAttribute('aria-label',loading?'Loading profile':'Taylor Morgan. Building something good.');$('load-toggle').setAttribute('aria-pressed',loading);$('load-toggle').textContent=loading?'Show loaded content':'Show skeleton'};
-let tab='Feed',collapse=0,switching=false;const offsets={Feed:0,Saved:0};const scroller=$('scroller');
-function header(){ $('scroll-head').style.height=90-collapse+'px';$('scroll-subtitle').style.display=collapse>25?'none':''}
-function rows(){scroller.replaceChildren(...Array.from({length:18},(_,i)=>{const row=document.createElement('div');row.className='row';row.textContent=(tab==='Feed'?'Inspiration ':'Saved idea ')+String(i+1).padStart(2,'0');const sub=document.createElement('span');sub.textContent=tab==='Feed'?'Explore':'Bookmarked';row.append(sub);return row}))}
-scroller.onscroll=()=>{if(switching)return;const y=Math.max(0,scroller.scrollTop);collapse=y===0?0:Math.max(0,Math.min(42,collapse+y-offsets[tab]));offsets[tab]=y;header()};
-document.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>{if(tab===b.dataset.tab)return;switching=true;offsets[tab]=scroller.scrollTop;tab=b.dataset.tab;rows();scroller.scrollTop=offsets[tab];scroller.setAttribute('aria-label','Scrollable library '+tab.toLowerCase());document.querySelectorAll('[data-tab]').forEach(x=>x.setAttribute('aria-pressed',x===b));if(offsets[tab]===0)collapse=0;header();requestAnimationFrame(()=>{switching=false})});rows();
-
 // Search and category filters share one source of truth.
 let category = 'all';
 const componentCards = [...document.querySelectorAll('article[data-category]')];

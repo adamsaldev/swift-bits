@@ -16,7 +16,7 @@ Open `Preview/index.html` to review the browser demos with keyboard navigation a
 
 ## Caller responsibilities
 
-Supply localized strings and meaningful accessibility names. Choose tint colors with sufficient contrast in the app's environment. Give fixed-size progress rings and collapsing headers enough room for larger text. Keep controls out of `ExpandableCard` summaries; place them in the detail area.
+Supply localized strings and meaningful accessibility names. Choose tint colors with sufficient contrast in the app's environment. Give fixed-size progress rings enough room for larger text.
 
 ## Validation scope
 

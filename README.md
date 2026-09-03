@@ -35,7 +35,7 @@
 
 **SwiftBits is a native SwiftUI component library for expressive apps.** Compose animated text, tactile controls, useful feedback, and flexible containers with small, readable APIs. Own your state, bring your content, and customize the result.
 
-- **14 components + 1 effect.** From a glowing call to action to a complete empty state.
+- **11 components + 1 effect.** From a glowing call to action to a complete empty state.
 - **SwiftUI all the way down.** Bindings, view builders, semantic styles, and native controls.
 - **A browser playground.** Explore interactive component demos with no Xcode setup.
 - **Built to grow.** Organized source, DocC guides, deterministic tests, and a documented component contract.
@@ -91,7 +91,6 @@ The project is currently an **untagged MVP**. Pin a commit for reproducible inte
 | --- | --- | --- |
 | [`GlowButton`](Sources/SwiftBits/Components/Buttons/GlowButton.swift) | Tinted glow with pressed and disabled feedback | [Quick start](#start-in-a-minute) |
 | [`HoldToConfirmButton`](Sources/SwiftBits/Components/Buttons/HoldToConfirmButton.swift) | Cancellable hold, plus keyboard and VoiceOver confirmation | [Buttons](Sources/SwiftBits/SwiftBits.docc/FirstCollection.md#buttons) |
-| [`MorphingButton`](Sources/SwiftBits/Components/Buttons/MorphingButton.swift) | Idle, loading, success, and retry states | [Buttons](Sources/SwiftBits/SwiftBits.docc/FirstCollection.md#buttons) |
 | [`FilterChip`](Sources/SwiftBits/Components/Controls/FilterChip.swift) | Binding-driven selection with a visible checkmark | [Filters](Sources/SwiftBits/SwiftBits.docc/EverydayComponents.md#selectable-filters) |
 
 ### Text & feedback
@@ -109,9 +108,7 @@ The project is currently an **untagged MVP**. Pin a commit for reproducible inte
 | Component | What it does | Guide |
 | --- | --- | --- |
 | [`SpotlightCard`](Sources/SwiftBits/Components/Cards/SpotlightCard.swift) | Pointer and touch-following radial highlight | [Cards](Sources/SwiftBits/SwiftBits.docc/FirstCollection.md#cards) |
-| [`ExpandableCard`](Sources/SwiftBits/Components/Cards/ExpandableCard.swift) | In-place expansion with interactive detail content | [Cards](Sources/SwiftBits/SwiftBits.docc/FirstCollection.md#cards) |
 | [`SkeletonView`](Sources/SwiftBits/Components/Loading/SkeletonView.swift) | Layout-preserving loading placeholders | [Loading](Sources/SwiftBits/SwiftBits.docc/FirstCollection.md#skeleton-layouts) |
-| [`CollapsingHeader`](Sources/SwiftBits/Components/Scrolling/CollapsingHeader.swift) | Shared header over independently scrolling tabs | [Scrolling](Sources/SwiftBits/SwiftBits.docc/FirstCollection.md#shared-collapsing-header) |
 | [`FlowLayout`](Sources/SwiftBits/Layouts/FlowLayout.swift) | Wrapping rows for tags and filters, including RTL | [Layout](Sources/SwiftBits/SwiftBits.docc/EverydayComponents.md#wrapping-layout) |
 | [`.shimmer()`](Sources/SwiftBits/Modifiers/ShimmerModifier.swift) | Optional animated light sweep over any view | [Example below](#compose-your-own) |
 
@@ -151,7 +148,7 @@ cd swift-bits
 open Preview/index.html
 ```
 
-The playground currently contains interactive approximations of the original eight components. SwiftUI source remains authoritative for native rendering and behavior.
+The playground currently contains interactive approximations of five components. SwiftUI source remains authoritative for native rendering and behavior.
 
 ## Requirements
 
@@ -166,7 +163,7 @@ The package retains its lower deployment floor for existing adopters; newer APIs
 
 ```text
 Sources/SwiftBits/
-├── Components/       Buttons, cards, controls, feedback, loading, scrolling, text
+├── Components/       Buttons, cards, controls, feedback, loading, text
 ├── Layouts/          Composable layout primitives
 ├── Modifiers/        Effects on existing views
 ├── Utilities/        Shared, testable helpers

@@ -16,6 +16,8 @@ Notable changes are recorded here. SwiftBits follows semantic versioning; 0.x AP
 
 ### Removed
 
+- `MorphingButton`, `ExpandableCard`, and `CollapsingHeader`, including their browser demos and related tests.
+
 - Native gallery, Xcode preview, macOS demo executable and launcher, and static README showcase.
 
 ### Fixed
@@ -26,5 +28,5 @@ Notable changes are recorded here. SwiftBits follows semantic versioning; 0.x AP
 
 ### Existing collection
 
-- Animated text, hold-to-confirm and morphing buttons, spotlight and expandable cards, loading skeletons, and shared collapsing headers.
+- Animated text, hold-to-confirm buttons, spotlight cards, and loading skeletons.
 - `GlowButton` and `.shimmer()` retain iOS 17/macOS 14 support; the expanded collection requires iOS 26/macOS 26.

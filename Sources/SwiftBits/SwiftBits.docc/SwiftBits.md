@@ -13,7 +13,6 @@ adding interaction and visual polish not included with the standard controls.
 
 - ``GlowButton``
 - ``HoldToConfirmButton``
-- ``MorphingButton``
 
 ### Effects
 
@@ -27,12 +26,10 @@ adding interaction and visual polish not included with the standard controls.
 ### Cards
 
 - ``SpotlightCard``
-- ``ExpandableCard``
 
-### Loading and scrolling
+### Loading
 
 - ``SkeletonView``
-- ``CollapsingHeader``
 
 ### Guides
 
