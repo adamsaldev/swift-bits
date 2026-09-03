@@ -8,9 +8,9 @@
   </picture>
 <br />
 <br />
-  <strong>Expressive SwiftUI components, effects, and interaction patterns.</strong>
+  Expressive SwiftUI components, effects, and interaction patterns.
   <br />
-  <sub>Built to help Swift developers add polish without rebuilding every animation from scratch.</sub>
+  Built to help Swift developers add polish without rebuilding every animation from scratch.
 
   <br />
   <br />
